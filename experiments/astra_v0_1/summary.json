@@ -1,0 +1,727 @@
+{
+  "schema": "long-view-astra-pilot-summary-v1",
+  "status": "Complete exploratory pilot; canonical engine replay and reference regrading verified; documented input deviations retained",
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort_requested": "high",
+  "verification": {
+    "engine_sha256": "0ef3cad335ac26777f744021174dd0ba2eed5326ce700164e2f3c8a815106a06",
+    "engine_and_player_brief_hashes_match_protocol": true,
+    "verifier_sha256": "545d3991ed7a684c1841a6b8a6db58f35701d0301cbe535e24fce83836dfd210",
+    "scope": "Canonical engine packets, transitions, final results, posterior/reference scores, choices and reason-word counts; recorded checkpoint replies and prompt packets; documented input patches.",
+    "input_provenance_limit": "Canonical replay is not byte-exact attestation of all model inputs. Episode logs preserve parsed response objects. Manual delivery discrepancies remain part of the experiment; B2 is not a clean protocol replication.",
+    "score_absolute_tolerance": 1e-12,
+    "score_relative_tolerance": 1e-10,
+    "optimal_choice_absolute_tolerance": 1e-09,
+    "input_files_sha256": {
+      "docs/player_brief.txt": "f04452868bdb5905056823a16167bc585ad44451285e3ea1624dd5b13032c474",
+      "examples/reachable_checkpoint_v0_1.json": "f2b3127845f788bcec87be5402e9d3f1b67d2290a8fd0c6db5b0e5ff90d81a1f",
+      "experiments/astra_v0_1/A1.json": "f4a4217982a53bf040ad9aab8df68e73ee9f6564bf88e66253c0628edd166f75",
+      "experiments/astra_v0_1/A2.json": "8468515724020dc12df69feca4f355521796bb585efe0b6a302595e33ce124eb",
+      "experiments/astra_v0_1/B1.json": "ddb0d52dc94823588b16571d73523da310961dfa94c294bea0aef53fca10bfbc",
+      "experiments/astra_v0_1/B2.json": "39aa93ca3aacf3753ad0394163f8bdf790a1df685a60dc1ca0153bf1ae3ede04",
+      "experiments/astra_v0_1/checkpoints.json": "f1ec6ff1fc8a476784d2827f9ffea34b2645d78526f8fcff3e374b8731393359",
+      "experiments/astra_v0_1/contestant_prompt.txt": "c28c666a6d07b6f91e78ff6ccff0cbf3030c0e15256e96fd58bb9f4c888f77ab",
+      "experiments/astra_v0_1/protocol.json": "2cf0d3fa1aea7ccee47934987d49da99fb95b29707b82a3fb736e887670bcfe1",
+      "experiments/astra_v0_1/protocol_deviations.json": "b56931c59e59442c204a465140fe01c4d8155e2e6017ac4cb6f3b6691830b7b5",
+      "experiments/astra_v0_1/verify_pilot.py": "545d3991ed7a684c1841a6b8a6db58f35701d0301cbe535e24fce83836dfd210",
+      "src/the_long_view/engine.py": "0ef3cad335ac26777f744021174dd0ba2eed5326ce700164e2f3c8a815106a06"
+    }
+  },
+  "recorded_budget": {
+    "planned_decision_responses": 36,
+    "recorded_game_responses": 32,
+    "recorded_checkpoint_responses": 4,
+    "recorded_total": 36,
+    "scope": "Counts published responses; replay does not independently attest unlogged execution activity."
+  },
+  "metric_definitions": {
+    "realised_charter_loss": "Weighted fictional burden over one completed game, including terminal liabilities; lower is better under the declared charter.",
+    "local_excess_expected_loss": "Chosen or fallback action's expected remaining charter loss minus the minimum at the actual public-history posterior, assuming optimal continuation. The sum over encountered decisions is not a paired realised-outcome difference.",
+    "optimal_choice_matches": "Valid submitted choices whose value is within the stated absolute tolerance of the minimum. Tied optimal actions all count; reference_label_matches is the separate literal tie-order label count.",
+    "forecast_brier": "Mean squared submitted forecast error against the game's revealed binary condition. Information acquisition and action-dependent observations affect this score.",
+    "posterior_squared_error": "Post-hoc squared deviation from the exact public-history posterior, distinct from Brier error against the realised condition; means include only valid forecasts.",
+    "mask_exposure": "Post-hoc observations counted once per episode from its final replayed history, or once per supplied checkpoint history, never repeatedly from growing packet histories. Paired episodes and repeated checkpoint presentations are not independent world draws."
+  },
+  "secondary_diagnostics_status": "Posterior reconstruction error and mechanism-exposure counts are post-hoc secondary diagnostics added following the independent review. They were not separately preregistered primary endpoints.",
+  "full_games": {
+    "rows": [
+      {
+        "episode": "A1",
+        "world_pair": "A",
+        "assay_cost": 1,
+        "released_seed": 292750833003214735262155733775252164766,
+        "revealed_condition": "benign",
+        "realised_charter_loss": 11.25,
+        "outcome_vector": {
+          "acute_service_shortfall": 1.0,
+          "delayed_health_burden": 0.0,
+          "farm_livelihood_disruption": 3.5,
+          "habitat_pressure": 1.75,
+          "public_expenditure": 4.0
+        },
+        "forecast_brier": 0.05696477758973948,
+        "final_state": {
+          "completed_seasons": 4,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "inquiry_sequence": [
+          "assay",
+          "none",
+          "none",
+          "none"
+        ],
+        "operation_sequence": [
+          "build",
+          "reuse",
+          "reuse",
+          "reuse"
+        ],
+        "decisions": 8,
+        "valid_decisions": 8,
+        "invalid_decisions": 0,
+        "optimal_choice_matches": 8,
+        "reference_label_matches": 8,
+        "sum_local_excess_expected_loss": 0.0,
+        "valid_forecasts": 8,
+        "max_public_reason_words": 49,
+        "reason_word_limit_violations": 0,
+        "post_hoc_mean_posterior_squared_error": 7.064094094439111e-22,
+        "post_hoc_max_posterior_absolute_error": 3.5483865845620244e-11,
+        "post_hoc_exposure": {
+          "surface_observations": 4,
+          "masked_surface_observations": 0,
+          "masked_clear": 0,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 4,
+          "unmasked_clear": 4,
+          "unmasked_warning": 0,
+          "assay_observations": 1,
+          "positive_assays": 1,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 0,
+          "ration_operations": 0,
+          "build_operations": 1,
+          "reuse_operations": 3
+        },
+        "post_hoc_action_decisions_with_reuse_available": 3,
+        "documented_input_deviation": false,
+        "deviation_ids": []
+      },
+      {
+        "episode": "A2",
+        "world_pair": "A",
+        "assay_cost": 2,
+        "released_seed": 292750833003214735262155733775252164766,
+        "revealed_condition": "benign",
+        "realised_charter_loss": 11.75,
+        "outcome_vector": {
+          "acute_service_shortfall": 1.0,
+          "delayed_health_burden": 0.0,
+          "farm_livelihood_disruption": 3.5,
+          "habitat_pressure": 1.75,
+          "public_expenditure": 5.0
+        },
+        "forecast_brier": 0.05696477758973948,
+        "final_state": {
+          "completed_seasons": 4,
+          "credits": 1,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "inquiry_sequence": [
+          "assay",
+          "none",
+          "none",
+          "none"
+        ],
+        "operation_sequence": [
+          "build",
+          "reuse",
+          "reuse",
+          "reuse"
+        ],
+        "decisions": 8,
+        "valid_decisions": 8,
+        "invalid_decisions": 0,
+        "optimal_choice_matches": 8,
+        "reference_label_matches": 8,
+        "sum_local_excess_expected_loss": 0.0,
+        "valid_forecasts": 8,
+        "max_public_reason_words": 42,
+        "reason_word_limit_violations": 0,
+        "post_hoc_mean_posterior_squared_error": 7.064094094439111e-22,
+        "post_hoc_max_posterior_absolute_error": 3.5483865845620244e-11,
+        "post_hoc_exposure": {
+          "surface_observations": 4,
+          "masked_surface_observations": 0,
+          "masked_clear": 0,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 4,
+          "unmasked_clear": 4,
+          "unmasked_warning": 0,
+          "assay_observations": 1,
+          "positive_assays": 1,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 0,
+          "ration_operations": 0,
+          "build_operations": 1,
+          "reuse_operations": 3
+        },
+        "post_hoc_action_decisions_with_reuse_available": 3,
+        "documented_input_deviation": false,
+        "deviation_ids": []
+      },
+      {
+        "episode": "B1",
+        "world_pair": "B",
+        "assay_cost": 1,
+        "released_seed": 205063739499376765430301066256889156985,
+        "revealed_condition": "hazardous",
+        "realised_charter_loss": 11.25,
+        "outcome_vector": {
+          "acute_service_shortfall": 1.0,
+          "delayed_health_burden": 0.0,
+          "farm_livelihood_disruption": 3.5,
+          "habitat_pressure": 1.75,
+          "public_expenditure": 4.0
+        },
+        "forecast_brier": 0.5938756706464274,
+        "final_state": {
+          "completed_seasons": 4,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "inquiry_sequence": [
+          "assay",
+          "none",
+          "none",
+          "none"
+        ],
+        "operation_sequence": [
+          "build",
+          "reuse",
+          "reuse",
+          "reuse"
+        ],
+        "decisions": 8,
+        "valid_decisions": 8,
+        "invalid_decisions": 0,
+        "optimal_choice_matches": 8,
+        "reference_label_matches": 8,
+        "sum_local_excess_expected_loss": 0.0,
+        "valid_forecasts": 8,
+        "max_public_reason_words": 48,
+        "reason_word_limit_violations": 0,
+        "post_hoc_mean_posterior_squared_error": 6.373019538686044e-22,
+        "post_hoc_max_posterior_absolute_error": 3.5483865845620244e-11,
+        "post_hoc_exposure": {
+          "surface_observations": 4,
+          "masked_surface_observations": 0,
+          "masked_clear": 0,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 4,
+          "unmasked_clear": 3,
+          "unmasked_warning": 1,
+          "assay_observations": 1,
+          "positive_assays": 1,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 0,
+          "ration_operations": 0,
+          "build_operations": 1,
+          "reuse_operations": 3
+        },
+        "post_hoc_action_decisions_with_reuse_available": 3,
+        "documented_input_deviation": false,
+        "deviation_ids": []
+      },
+      {
+        "episode": "B2",
+        "world_pair": "B",
+        "assay_cost": 2,
+        "released_seed": 205063739499376765430301066256889156985,
+        "revealed_condition": "hazardous",
+        "realised_charter_loss": 11.75,
+        "outcome_vector": {
+          "acute_service_shortfall": 1.0,
+          "delayed_health_burden": 0.0,
+          "farm_livelihood_disruption": 3.5,
+          "habitat_pressure": 1.75,
+          "public_expenditure": 5.0
+        },
+        "forecast_brier": 0.5938756706464274,
+        "final_state": {
+          "completed_seasons": 4,
+          "credits": 1,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "inquiry_sequence": [
+          "assay",
+          "none",
+          "none",
+          "none"
+        ],
+        "operation_sequence": [
+          "build",
+          "reuse",
+          "reuse",
+          "reuse"
+        ],
+        "decisions": 8,
+        "valid_decisions": 8,
+        "invalid_decisions": 0,
+        "optimal_choice_matches": 8,
+        "reference_label_matches": 8,
+        "sum_local_excess_expected_loss": 0.0,
+        "valid_forecasts": 8,
+        "max_public_reason_words": 40,
+        "reason_word_limit_violations": 0,
+        "post_hoc_mean_posterior_squared_error": 6.373019538686044e-22,
+        "post_hoc_max_posterior_absolute_error": 3.5483865845620244e-11,
+        "post_hoc_exposure": {
+          "surface_observations": 4,
+          "masked_surface_observations": 0,
+          "masked_clear": 0,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 4,
+          "unmasked_clear": 3,
+          "unmasked_warning": 1,
+          "assay_observations": 1,
+          "positive_assays": 1,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 0,
+          "ration_operations": 0,
+          "build_operations": 1,
+          "reuse_operations": 3
+        },
+        "post_hoc_action_decisions_with_reuse_available": 3,
+        "documented_input_deviation": true,
+        "deviation_ids": [
+          "B2-history-expenditure"
+        ]
+      }
+    ],
+    "totals": {
+      "decisions": 32,
+      "valid_decisions": 32,
+      "invalid_decisions": 0,
+      "optimal_choice_matches": 32,
+      "reference_label_matches": 32,
+      "sum_local_excess_expected_loss": 0.0,
+      "valid_forecasts": 32,
+      "max_public_reason_words": 49,
+      "reason_word_limit_violations": 0,
+      "post_hoc_mean_posterior_squared_error": 6.718556816562578e-22,
+      "post_hoc_max_posterior_absolute_error": 3.5483865845620244e-11,
+      "completed_games": 4,
+      "distinct_exogenous_worlds": 2,
+      "sum_realised_charter_loss": 46.0,
+      "mean_realised_charter_loss": 11.5,
+      "mean_local_excess_expected_loss_per_game": 0.0,
+      "forecast_weighted_brier": 0.32542022411808347,
+      "mean_outcome_vector": {
+        "acute_service_shortfall": 1.0,
+        "delayed_health_burden": 0.0,
+        "farm_livelihood_disruption": 3.5,
+        "habitat_pressure": 1.75,
+        "public_expenditure": 4.5
+      },
+      "worlds_by_revealed_condition": {
+        "benign": 1,
+        "hazardous": 1
+      },
+      "post_hoc_exposure": {
+        "surface_observations": 16,
+        "masked_surface_observations": 0,
+        "masked_clear": 0,
+        "masked_warning": 0,
+        "unmasked_surface_observations": 16,
+        "unmasked_clear": 14,
+        "unmasked_warning": 2,
+        "assay_observations": 4,
+        "positive_assays": 4,
+        "negative_assays": 0,
+        "pump_operations": 0,
+        "blend_operations": 0,
+        "ration_operations": 0,
+        "build_operations": 4,
+        "reuse_operations": 12
+      },
+      "post_hoc_action_decisions_with_reuse_available": 12
+    }
+  },
+  "diagnostic_checkpoints": {
+    "scope": "Three hypothetical supplied checkpoints and one previously published reachable checkpoint. These are a separate diagnostic distribution, not four additional complete games.",
+    "rows": [
+      {
+        "case_id": "C1",
+        "distribution": "hypothetical supplied checkpoint; not a full-game trajectory",
+        "checkpoint_type": "hypothetical_supplied",
+        "phase": "inquiry",
+        "assay_cost": 1,
+        "choice": "assay",
+        "valid_choice": true,
+        "optimal_choice_match": true,
+        "optimal_choices": [
+          "assay"
+        ],
+        "reference_action": "assay",
+        "reference_label_match": true,
+        "action_regret": 0.0,
+        "reference_values": {
+          "none": 9.0,
+          "assay": 8.27262
+        },
+        "forecast_hazardous": 0.4,
+        "correct_public_posterior": 0.4,
+        "post_hoc_posterior_squared_error": 0.0,
+        "public_reason_words": 63,
+        "actual_prompt_sha256": "0f584166acc1aa3bd1483b36cc0c4d02da696d1e6bf873714ac9b17169d6e8c2",
+        "post_hoc_exposure": {
+          "surface_observations": 1,
+          "masked_surface_observations": 1,
+          "masked_clear": 1,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 0,
+          "unmasked_clear": 0,
+          "unmasked_warning": 0,
+          "assay_observations": 0,
+          "positive_assays": 0,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 1,
+          "ration_operations": 0,
+          "build_operations": 0,
+          "reuse_operations": 0
+        },
+        "documented_input_deviation": true,
+        "deviation_ids": [
+          "C1-punctuation"
+        ]
+      },
+      {
+        "case_id": "C2",
+        "distribution": "hypothetical supplied checkpoint; not a full-game trajectory",
+        "checkpoint_type": "hypothetical_supplied",
+        "phase": "inquiry",
+        "assay_cost": 2,
+        "choice": "none",
+        "valid_choice": true,
+        "optimal_choice_match": true,
+        "optimal_choices": [
+          "none"
+        ],
+        "reference_action": "none",
+        "reference_label_match": true,
+        "action_regret": 0.0,
+        "reference_values": {
+          "none": 9.0,
+          "assay": 9.672099999999999
+        },
+        "forecast_hazardous": 0.4,
+        "correct_public_posterior": 0.4,
+        "post_hoc_posterior_squared_error": 0.0,
+        "public_reason_words": 62,
+        "actual_prompt_sha256": "a9a25000873b077ffd1abe9689101ce3accf4b1465b2786006261762057901c6",
+        "post_hoc_exposure": {
+          "surface_observations": 1,
+          "masked_surface_observations": 1,
+          "masked_clear": 1,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 0,
+          "unmasked_clear": 0,
+          "unmasked_warning": 0,
+          "assay_observations": 0,
+          "positive_assays": 0,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 1,
+          "ration_operations": 0,
+          "build_operations": 0,
+          "reuse_operations": 0
+        },
+        "documented_input_deviation": false,
+        "deviation_ids": []
+      },
+      {
+        "case_id": "C3",
+        "distribution": "hypothetical supplied checkpoint; not a full-game trajectory",
+        "checkpoint_type": "hypothetical_supplied",
+        "phase": "action",
+        "assay_cost": 1,
+        "choice": "ration",
+        "valid_choice": true,
+        "optimal_choice_match": true,
+        "optimal_choices": [
+          "blend",
+          "ration"
+        ],
+        "reference_action": "blend",
+        "reference_label_match": false,
+        "action_regret": 0.0,
+        "reference_values": {
+          "pump": 10.14351,
+          "blend": 9.0,
+          "ration": 9.0,
+          "build": 10.0
+        },
+        "forecast_hazardous": 0.4,
+        "correct_public_posterior": 0.4,
+        "post_hoc_posterior_squared_error": 0.0,
+        "public_reason_words": 69,
+        "actual_prompt_sha256": "8cee0d15cf599e3446fca6cd659d63fa8a23121c6c954a9242e12ac736128f2b",
+        "post_hoc_exposure": {
+          "surface_observations": 1,
+          "masked_surface_observations": 1,
+          "masked_clear": 1,
+          "masked_warning": 0,
+          "unmasked_surface_observations": 0,
+          "unmasked_clear": 0,
+          "unmasked_warning": 0,
+          "assay_observations": 0,
+          "positive_assays": 0,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 1,
+          "ration_operations": 0,
+          "build_operations": 0,
+          "reuse_operations": 0
+        },
+        "documented_input_deviation": false,
+        "deviation_ids": []
+      },
+      {
+        "case_id": "C4",
+        "distribution": "reachable previously published checkpoint; illustrative, not held out",
+        "checkpoint_type": "reachable_previously_published",
+        "phase": "action",
+        "assay_cost": 1,
+        "choice": "pump",
+        "valid_choice": true,
+        "optimal_choice_match": true,
+        "optimal_choices": [
+          "pump"
+        ],
+        "reference_action": "pump",
+        "reference_label_match": true,
+        "action_regret": 0.0,
+        "reference_values": {
+          "pump": 7.021154838709677,
+          "blend": 7.106209677419354,
+          "ration": 8.795145161290323,
+          "build": 10.0
+        },
+        "forecast_hazardous": 0.1290322581,
+        "correct_public_posterior": 0.12903225806451613,
+        "post_hoc_posterior_squared_error": 1.2591047353499749e-21,
+        "public_reason_words": 57,
+        "actual_prompt_sha256": "65b8e86f0ec8dcec9d006c38d3f3b551d0c93ec93e0a4080bbf9581f5cb75637",
+        "post_hoc_exposure": {
+          "surface_observations": 2,
+          "masked_surface_observations": 1,
+          "masked_clear": 0,
+          "masked_warning": 1,
+          "unmasked_surface_observations": 1,
+          "unmasked_clear": 1,
+          "unmasked_warning": 0,
+          "assay_observations": 0,
+          "positive_assays": 0,
+          "negative_assays": 0,
+          "pump_operations": 0,
+          "blend_operations": 1,
+          "ration_operations": 0,
+          "build_operations": 0,
+          "reuse_operations": 0
+        },
+        "documented_input_deviation": false,
+        "deviation_ids": []
+      }
+    ],
+    "totals": {
+      "decisions": 4,
+      "valid_decisions": 4,
+      "invalid_decisions": 0,
+      "optimal_choice_matches": 4,
+      "reference_label_matches": 3,
+      "sum_local_excess_expected_loss": 0.0,
+      "valid_forecasts": 4,
+      "max_public_reason_words": 69,
+      "reason_word_limit_violations": 0,
+      "post_hoc_mean_posterior_squared_error": 3.147761838374937e-22,
+      "post_hoc_max_posterior_absolute_error": 3.5483865845620244e-11,
+      "post_hoc_exposure": {
+        "surface_observations": 5,
+        "masked_surface_observations": 4,
+        "masked_clear": 3,
+        "masked_warning": 1,
+        "unmasked_surface_observations": 1,
+        "unmasked_clear": 1,
+        "unmasked_warning": 0,
+        "assay_observations": 0,
+        "positive_assays": 0,
+        "negative_assays": 0,
+        "pump_operations": 0,
+        "blend_operations": 4,
+        "ration_operations": 0,
+        "build_operations": 0,
+        "reuse_operations": 0
+      }
+    }
+  },
+  "protocol_deviations_present": true,
+  "protocol_deviations": {
+    "status": "Retained deviations in the exploratory in-session pilot; no affected run was discarded or repeated.",
+    "delivery": "Human-readable collaboration calls manually transcribed public packets. Canonical engine packets in episode logs are not byte-exact attestations of all delivered inputs.",
+    "deviations": [
+      {
+        "id": "C1-punctuation",
+        "case_id": "C1",
+        "kind": "prompt transcription",
+        "template_text": "reuse costs0, only after build;",
+        "delivered_text": "reuse costs0; only after build;",
+        "handling": "Actual delivered prompt retained in checkpoints.json; numerical rules unchanged; no rerun."
+      },
+      {
+        "id": "B2-history-expenditure",
+        "episode": "B2",
+        "response_number": 6,
+        "phase": "season 3 action",
+        "kind": "one discrepant historic observation",
+        "canonical_record": "B2.json /steps/5/packet",
+        "json_pointer": "/history/5/observable_burdens/public_expenditure",
+        "canonical_value": 0.0,
+        "delivered_value": 0.25,
+        "actual_input_packet": {
+          "schema": "long-view-kernel-v1",
+          "phase": "action",
+          "state": {
+            "completed_seasons": 2,
+            "credits": 1,
+            "reuse_works": true,
+            "extraction_debt": 0
+          },
+          "total_seasons": 4,
+          "assay_cost": 2,
+          "declared_charter": {
+            "acute_service_shortfall": 4.0,
+            "delayed_health_burden": 4.0,
+            "farm_livelihood_disruption": 1.0,
+            "habitat_pressure": 1.0,
+            "public_expenditure": 0.5
+          },
+          "history": [
+            {
+              "event": "surface",
+              "season": 1,
+              "after_action": null,
+              "result": "clear"
+            },
+            {
+              "event": "assay",
+              "season": 1,
+              "cost": 2,
+              "result": "positive"
+            },
+            {
+              "event": "action",
+              "season": 1,
+              "choice": "build",
+              "observable_burdens": {
+                "acute_service_shortfall": 1.0,
+                "farm_livelihood_disruption": 2.0,
+                "habitat_pressure": 1.0,
+                "public_expenditure": 3.0
+              }
+            },
+            {
+              "event": "surface",
+              "season": 2,
+              "after_action": "build",
+              "result": "clear"
+            },
+            {
+              "event": "inquiry",
+              "season": 2,
+              "choice": "none",
+              "cost": 0
+            },
+            {
+              "event": "action",
+              "season": 2,
+              "choice": "reuse",
+              "observable_burdens": {
+                "acute_service_shortfall": 0.0,
+                "farm_livelihood_disruption": 0.5,
+                "habitat_pressure": 0.25,
+                "public_expenditure": 0.25
+              }
+            },
+            {
+              "event": "surface",
+              "season": 3,
+              "after_action": "reuse",
+              "result": "clear"
+            },
+            {
+              "event": "inquiry",
+              "season": 3,
+              "choice": "none",
+              "cost": 0
+            }
+          ],
+          "available_choices": [
+            "pump",
+            "ration",
+            "reuse"
+          ]
+        },
+        "handling": "Response retained without coaching or rerun. The next packet used the correct complete history. No extra contestant response was commissioned.",
+        "impact_assessment": "The altered entry was a past expenditure, while stated reuse cost, current credits, legal choices, source evidence, and transition rules remained correct. It does not change the canonical optimal continuation or reference posterior. The submitted response explicitly used the stated action rules and selected reuse. This remains an uncontrolled input discrepancy, so B2 is not a clean protocol replication."
+      }
+    ],
+    "secondary_diagnostics": "Posterior reconstruction error and mechanism-exposure counts were added following the independent review and are post-hoc diagnostics, not separately preregistered primary endpoints.",
+    "unavailable_telemetry": [
+      "inference dollars",
+      "reasoning tokens",
+      "API response model identifier",
+      "per-decision elapsed inference time",
+      "independent reasoning-mode attestation",
+      "hardened contestant isolation"
+    ],
+    "no_repair_or_extra_run": true
+  },
+  "deviation_verification": [
+    {
+      "id": "C1-punctuation",
+      "recorded_prompt_variation_verified": true
+    },
+    {
+      "id": "B2-history-expenditure",
+      "exact_recorded_patch_verified": true,
+      "continuation_values_and_posterior_unchanged": true,
+      "clean_protocol_replication": false
+    }
+  ],
+  "unavailable_telemetry": [
+    "inference dollars",
+    "reasoning tokens",
+    "API response model identifier",
+    "per-decision elapsed inference time",
+    "independent reasoning-mode attestation",
+    "hardened contestant isolation"
+  ],
+  "limitations": [
+    "Four games share two exogenous worlds, with one run at each assay price; this is a tiny mechanics pilot, not a model ranking or an architecture comparison.",
+    "Reference optimality is confined to this fully specified four-season kernel and its declared scalar charter, not general ethical reasoning or the proposed longer campaign.",
+    "The model name, effort request, fresh-agent setup and no-tools instructions are execution metadata; this replay cannot independently attest model identity or hardened isolation.",
+    "All recorded runs and the two documented input discrepancies are retained; no inference latency, reasoning-token usage or monetary cost is fabricated.",
+    "Posterior reconstruction error and mechanism-exposure counts are post-hoc secondary diagnostics added following the independent review. They were not separately preregistered primary endpoints."
+  ]
+}

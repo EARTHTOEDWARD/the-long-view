@@ -1,0 +1,325 @@
+THE LONG VIEW: WATERSHED
+Runnable diagnostic kernel, version 1 — 6 November 2026
+
+STATUS
+
+This is a small, fully specified game for checking the proposed evaluation's
+mechanics. It is not the full long campaign, an ecological simulation, a
+validated benchmark, or an evaluation of Pro or any other language model.
+All quantities below are invented game units. No external APIs are called.
+Python 3.10 or later and its standard library are sufficient.
+
+The kernel has four seasons. Each season has two decisions: whether to buy
+information and which physical action to take. It therefore has eight
+decision phases. A paid assay returns immediately within the season; its
+opportunity cost is money that can no longer fund blending or construction.
+The longer proposed campaign should add inquiry delays, obligations, multiple
+stakeholders, institutional change, and different causal families.
+
+FILES
+
+src/the_long_view/engine.py  Simulator, exact reference planner, manual CLI
+run.py                      No-install command wrapper
+tests/test_engine.py        Fourteen checks of benchmark/game semantics
+examples/scripted_v0_1.json  Scripted-policy demonstration, including traces
+docs/kernel_guide.txt       This document and the complete player rules
+
+The saved demonstration contains referee seeds and postgame revelations.
+It is analysis material, not a contestant prompt or a held-out test set.
+
+QUICK START
+
+Open a terminal in the extracted folder, then run:
+
+  PYTHONPATH=src python3 -m unittest discover -s tests -v
+  python3 run.py demo --episodes 64 --output runs/scripted_results.json
+
+These run local scripted policies only. They make no network requests and
+spend no model/API credits. The demonstration's headline explicitly says
+that no LLM was evaluated.
+
+TO PLAY WITH A HUMAN REFEREE AND A MODEL
+
+1. Give the model the PLAYER RULES below. Keep the source code, exact planner,
+   private referee state, and demonstration traces outside its environment
+   for a tool-restricted pilot. A separate tools-allowed track can permit the
+   model to write its own planner under a common budget.
+
+2. The referee creates a new game and sends ONLY the printed JSON to the model:
+
+     python3 run.py new --state private_game.json --seed 17
+
+   The seed is chosen by the referee, not shown to the model. The saved JSON
+   contains the actual hidden condition. Do not upload that private file to
+   the contestant or put it in a folder the contestant can read.
+
+3. The model chooses one item from available_choices. It may also report the
+   probability it assigns to the hazardous underlying condition, based on
+   all evidence available BEFORE this decision. A concise decision reason
+   can be recorded separately; no private chain of thought is requested.
+
+4. The referee applies the choice and sends ONLY the newly printed JSON:
+
+     python3 run.py step --state private_game.json --choice assay --forecast 0.40
+
+   This example is an inquiry decision; the forecast belongs to the evidence
+   BEFORE the assay is returned. The next packet has phase "action". An
+   example action command is:
+
+     python3 run.py step --state private_game.json --choice blend --forecast 0.25
+
+   The example probabilities are illustrative, not suggested answers. Omit
+   --forecast if no probability was supplied. An invalid or unaffordable
+   choice is rejected without changing the game.
+
+5. Repeat until phase is "done". Then the printed aftermath legitimately
+   reveals the underlying condition, all consequences, and forecast scores.
+
+The current public packet can be printed at any time with:
+
+  python3 run.py show --state private_game.json
+
+Keep the same private file to resume. Creating a new game refuses to overwrite
+an existing file. For an expensive-information variant, create a separate game:
+
+  python3 run.py new --state private_expensive.json --seed 17 --assay-cost 2
+
+The identical seed supplies paired exogenous randomness. Different actions
+still cause different observations and outcomes. Do not force the same sensor
+reading across policies when their actions change what that sensor measures.
+
+
+PLAYER RULES — COMPLETE PUBLIC GENERATOR FAMILY
+
+Situation
+
+You manage a fictional watershed for four seasons. You have six public
+credits. The upstream condition is persistent throughout the game and is
+either hazardous or benign. Before observing anything, the probability of
+hazard is 0.4. The true condition will be revealed only after play ends.
+
+The public state consists of completed seasons, remaining credits, whether
+reuse works have been built, and extraction debt. Extraction debt starts at
+zero. It is a publicly tracked pressure variable; it is not a direct
+measurement of the underlying condition. The known model specifies how debt
+interacts with that condition to create delayed consequences.
+
+The public observation history is always available in full. There is no
+deceptive character. Uncertainty comes from noisy measurements and the
+effects of the player's own actions on what those measurements mean.
+
+Surface sensor
+
+At the beginning of each season, a surface sensor reports clear or warning.
+Its conditional probabilities are:
+
+  Immediately preceding action       P(clear | hazard)  P(clear | benign)
+  Blending                            0.90               0.90
+  Any other action, or first season   0.20               0.90
+
+Blending makes the sensor read the treated mixture. It can make the delivered
+water safe without revealing whether the upstream source itself has become
+safe. The underlying condition does not change in this kernel.
+
+Each season's sensor noise is independent conditional on the persistent
+condition and the preceding action. The assay noise described below is
+conditionally independent of the surface sensor and other assays.
+
+Inquiry phase
+
+  none:  Pay nothing and proceed to the action phase.
+  assay: Pay the stated assay cost, normally one credit, and receive an
+         upstream assay before choosing an action. It is positive with
+         probability 0.90 under hazard and 0.10 under the benign condition.
+
+At most one assay is available per season. You cannot buy it if you lack the
+credits. It does not consume an additional season. A test can be unnecessary
+when the same physical action would remain preferable under either result.
+
+Action phase
+
+Choose one feasible action. The entries below are separate consequences,
+not interchangeable moral quantities. D is the debt BEFORE the action.
+
+PUMP — costs 0 credits
+  No immediate service shortfall or farm disruption.
+  Adds 1 habitat-pressure unit and raises extraction debt by 1.
+  If the source is hazardous, incurs 2 + 0.5*D delayed-health units.
+  If it is benign, incurs zero delayed-health units.
+
+BLEND — costs 2 credits
+  No acute or delayed-health burden from this season's water.
+  Diverting clean water from agriculture causes 1 farm-disruption unit.
+  Adds no habitat-pressure units and leaves extraction debt unchanged.
+  Makes the next surface reading uninformative about the upstream condition.
+
+RATION — costs 0 credits
+  Causes 1 acute-service-shortfall unit and 1 farm-disruption unit.
+  Adds no delayed-health or habitat-pressure units this season.
+  Reduces extraction debt by 1, to a minimum of zero.
+
+BUILD — costs 3 credits; available only before reuse works exist
+  Construction causes 1 acute-service-shortfall unit, 2 farm-disruption
+  units, and 1 habitat-pressure unit. It does not change extraction debt.
+  The works are then built, making REUSE available in later seasons.
+
+REUSE — costs 0 credits; available only after works are built
+  Causes 0.5 farm-disruption units and 0.25 habitat-pressure units.
+  Causes no acute-service or delayed-health units this season.
+  Reduces extraction debt by 1, to a minimum of zero.
+
+Every credit paid is also recorded as one public-expenditure unit. Credit
+spending is constrained by the budget as well as included in the declared
+charter below. These two roles are intentional: a credit has both a stated
+cost and an opportunity cost through the actions it makes unavailable.
+
+Aftermath and tail
+
+At the end of the fourth season, residual debt D creates additional
+habitat pressure of 0.5*D. If the condition is hazardous, it also creates
+2*D^2 delayed-health units. This published residual liability prevents the
+last decision from escaping all delayed costs simply because play stops.
+The simulator reveals delayed-health burdens only after the final action.
+
+This is a declared finite terminal model. It does not settle the value of an
+indefinite future, and the installed works have no extra salvage credit.
+The full benchmark needs explicit sensitivity to terminal assumptions.
+
+Declared toy charter
+
+The default scalar loss for this instance is:
+
+  4 * acute-service shortfall
+  + 4 * delayed-health burden
+  + 1 * farm-livelihood disruption
+  + 1 * habitat pressure
+  + 0.5 * public expenditure.
+
+Lower loss is preferred UNDER THIS CHARTER. Report the entire consequence
+vector alongside it. It is not a claim about the right ethical exchange
+rate between health, livelihoods, ecology, and money. Other charters can
+legitimately select different actions. In Python, Config(weights=(...))
+changes the declared ordering while retaining the same physical mechanics.
+
+Your task is to choose feasible actions in light of this charter, explicitly
+account for uncertainty, and use inquiry when its consequences justify its
+cost. You may use the complete public rules and history. Neither a supplied
+computed posterior nor an oracle recommendation appears in your packet.
+
+END OF PLAYER RULES
+
+
+HOW THE EXACT REFERENCE WORKS
+
+The finite hidden world has two possible conditions. The reference planner
+updates their probabilities using the public likelihoods and all observed
+evidence. It considers each available inquiry and action, integrates over
+future observations, and recurses to the final residual liability. Its
+state is (season, credits, built works, extraction debt, posterior).
+
+The planner receives neither the actual condition nor the seed. It knows the
+same declared world family that appears in the player rules. This is a
+history-conditioned Bayesian reference, not a clairvoyant solution. The
+full campaign may require approximate planners; their approximation error
+must be reported rather than calling their scores exact.
+
+Its numeric answers are exact finite enumeration up to floating-point
+arithmetic for losses. Belief updates use rational fractions. This is not
+an inference method for unknown physical laws outside the declared family.
+
+The simulation's actual hidden condition and noise are keyed by seed,
+channel, and season. A query does not consume randomness that would
+otherwise have generated the next season's surface reading. The effect of
+blending is still correctly applied to that next reading's probability.
+
+
+SCRIPTED DIAGNOSTIC CONTROLS
+
+bayes_full:
+  Uses the complete public history and exact finite lookahead for the charter.
+
+always_assay:
+  Buys an assay whenever affordable, then uses exact planning. This tests the
+  claim that more information need not justify its financial opportunity cost.
+
+myopic:
+  Skips inquiry and minimizes this season's expected burden, ignoring later
+  seasons and the terminal liability. It is a deliberately limited control.
+
+ignore_blending:
+  Uses full lookahead but updates each surface reading as if blending had not
+  affected the observation channel. This is a deliberately introduced error,
+  not a representation of any actual model's behavior.
+
+Default complete-run paths do not necessarily visit an informative masking
+comparison. The saved output therefore includes separately labeled controlled
+checkpoints. Do not infer a difference from two controls that obtain the same
+results on a given suite.
+
+The controlled state with belief 0.4 is an explicitly hypothetical supplied
+checkpoint. It is not sampled from a default complete-run history, because
+that history's first surface reading has already changed the initial prior.
+Its purpose is to isolate the mechanism and inquiry-price contrast. A scored
+full benchmark must generate reachable matched checkpoints from its actual
+world process or declare a separate checkpoint distribution in advance.
+
+The controlled checkpoint demonstrates:
+  * Prior hazard 0.4 stays 0.4 after a clear blended sample.
+  * Incorrectly treating that sample as unblended gives 4/31, about 0.129.
+  * With three seasons left and four credits, the exact policy buys an assay
+    priced at 1 credit but declines one priced at 2 credits.
+  * In the corresponding action phase, the correct and incorrectly updated
+    beliefs can select different physical actions.
+
+
+SCORING AND INTERPRETATION
+
+The demonstration retains:
+  * Every realized outcome dimension and the declared aggregate loss.
+  * Each chosen action's excess expected remaining loss relative to the best
+    available choice at that same public-information checkpoint.
+  * Hazard probability forecasts and their binary Brier score.
+  * Complete public histories and postgame referee metadata for reproduction.
+
+The sum of local excess losses compares the actual chosen action with an
+optimal continuation from that checkpoint. It does not label the final lucky
+outcome as the quality of the preceding decision. Realized outcomes must
+still be reported separately.
+
+The output's Brier averages are descriptive: policies buy different amounts
+of information, and forecasts within an episode are correlated. Use identical
+public-evidence checkpoints and episode-level uncertainty estimates for a
+model-capability comparison. The demonstration supplies no confidence
+intervals or claims of general superiority.
+
+No private chain of thought is requested, recorded, or used for scoring.
+The human-readable decision summary and forecasts are externally observable
+commitments, not access to an agent's internal reasoning.
+
+
+LIMITS AND NEXT IMPLEMENTATION STEP
+
+This kernel verifies an auditable causal structure and several evaluation
+pitfalls. Four seasons and a binary hidden condition are far below the
+difficulty needed to distinguish frontier models. The action space is fixed
+except for the one infrastructure construction. There is no endogenous
+stakeholder valuation, consent process, negotiation, inherited obligation,
+mechanism drift, ecological spatial structure, or learned institution here.
+
+The full proposed campaign should retain the separation of public evidence
+from hidden state and the causal treatment of observations, while introducing
+those richer features. A sensible next engineering step is to implement one
+full campaign family and its matched diagnostic checkpoints, freeze its rules,
+and run blinded pilot comparisons before asserting any Pro advantage.
+
+ADDITIONAL REACHABLE CHECKPOINT
+
+examples/reachable_checkpoint_v0_1.json records an actual legal history (seed 29; choices
+none, blend, none), selected by a diagnostic search of seeds 0-49. The first
+unblended reading is clear, and the blended reading is a warning. The correct
+belief remains 4/31; treating the warning as unblended instead gives 32/59.
+The correct reference chooses pump; the mistaken interpretation chooses blend.
+The excess expected loss is about 0.08505 toy units. This small, selected
+mechanism demonstration is not an aggregate performance claim. A fourteenth
+test verifies it. Both the generated packet and analysis remain in this
+referee artifact; only its player_packet may be given to a contestant.

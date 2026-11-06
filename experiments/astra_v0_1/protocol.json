@@ -1,0 +1,34 @@
+{
+  "status": "EXPLORATORY IN-SESSION ASTRA MECHANICS BASELINE, NOT A MODEL RANKING",
+  "created_utc": "2026-11-06T11:50:29.605177+00:00",
+  "game_version": "frozen original v0.1 kernel",
+  "engine_sha256": "0ef3cad335ac26777f744021174dd0ba2eed5326ce700164e2f3c8a815106a06",
+  "player_brief_sha256": "f04452868bdb5905056823a16167bc585ad44451285e3ea1624dd5b13032c474",
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort_requested": "high",
+  "execution": "collaboration agent interface; fresh fork_turns=none agent per episode or checkpoint",
+  "reasoning_mode": "not independently exposed by this interface",
+  "budget": {
+    "complete_games": 4,
+    "decisions_per_game": 8,
+    "diagnostic_decisions": 4,
+    "total_decision_responses": 36,
+    "public_reason_word_limit": 120,
+    "tool_calls_allowed_to_contestant": 0,
+    "invalid_output_repairs": 0,
+    "dollar_cost": "not exposed by in-session interface",
+    "external_API_requests": 0
+  },
+  "design": "Two freshly drawn exogenous world seeds, each with assay costs 1 and 2; one fresh-agent run per cell. No ranking inference from n=2 worlds.",
+  "private_schedule_sha256": "c6fde42374e8c3bdb8821b0148c68e5485198a1681a19092b58be710d8790861",
+  "diagnostics": [
+    "Supplied belief-0.4 checkpoint with masked clean sample and assay price 1",
+    "Same supplied checkpoint with assay price 2",
+    "Action phase of supplied belief-0.4 masked-clean checkpoint",
+    "Previously published, reachable masked-warning checkpoint (seed 29); illustrative, not held out"
+  ],
+  "scoring": "Sum local excess expected loss under correct public-history posterior; realised vector and charter loss; Brier score; invalid choices; explicit limitations.",
+  "isolation": "Prompt-enforced no tools, no parent history, no referee source/seed/answers sent. Shared runtime does not provide a hardened security boundary.",
+  "failure_rule": "Invalid inquiry defaults to none; invalid operation defaults to ration; no extra coaching/repair. Retain original response.",
+  "stopping_rule": "Exactly the four scheduled games and four checkpoints, unless execution fails; retain and report failures. No selecting runs after results."
+}

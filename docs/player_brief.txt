@@ -1,0 +1,158 @@
+THE LONG VIEW: WATERSHED — SMALL PILOT
+Public player rules and pasteable instruction | Version 1 | 6 November 2026
+
+This is a fictional four-season game. It is a small diagnostic of inquiry,
+planning, and action-dependent evidence, not the full proposed civic campaign.
+All quantities below are invented game units. No real environmental or health
+inference should be drawn from them.
+
+YOUR ROLE
+
+You manage a shared water system. In every season you choose whether to buy an
+assay, then choose one operation. Your choices affect present burdens, later
+options, resources, and what the next surface observation means.
+
+Follow the public charter supplied in your current observation packet. In the
+default charter, minimise the total weighted loss over all four seasons,
+including the published residual liability after the last season:
+
+  4 x acute service shortfall
+  + 4 x delayed health burden
+  + 1 x farm livelihood disruption
+  + 1 x habitat pressure
+  + 0.5 x public expenditure.
+
+These weights are a declared task condition. They do not claim that these
+different concerns have a universally correct exchange rate. Keep the
+underlying tradeoff visible in your short explanation. A test administrator
+can change the charter; the packet always states the weights being used.
+
+INITIAL CONDITIONS AND WHAT IS KNOWN
+
+There are four seasons, six initial credits, no reuse works, and extraction
+debt d = 0. The packet states the current season count, remaining credits,
+whether reuse works exist, and the current debt.
+
+The underlying water condition is either hazardous or benign. It is fixed for
+the entire game. Before any observations, the hazard probability is 0.40.
+Only the referee knows the realised condition.
+
+At the beginning of each season you receive a free surface observation,
+either clear or warning. The first observation is unblended. Subsequent
+observations depend on the previous operation:
+
+Previous operation                 P(clear | hazardous)   P(clear | benign)
+blend                              0.90                   0.90
+anything else / initial sample     0.20                   0.90
+
+A warning is the complement of a clear result. The previous operation is
+explicitly recorded in the observation history. The sensor responds to the
+water reaching it; blending does not remove the underlying condition.
+
+Assay results and surface results use independent sampling noise conditional
+on the underlying condition and the relevant action. Distinct seasons have
+independent sampling noise conditional on these variables. Multiple reports
+are not unconditionally independent, because they share the same condition.
+There is no additional evidence beyond what the observation packet provides.
+
+PHASE 1: INQUIRY
+
+Choose one of the listed legal choices:
+
+none: no assay, no charge. Proceed to the action phase.
+assay: spend the packet's stated assay cost, normally 1 credit. The result
+       arrives before this season's action. P(positive | hazardous) = 0.90;
+       P(positive | benign) = 0.10. Negative is the complement.
+
+At most one assay is available in a season. Its cost both reduces the credits
+available for operations and counts as public expenditure in the charter.
+There is no extra in-game delay in this SMALL pilot. Delay and work crews
+belong to the proposed full campaign.
+
+PHASE 2: OPERATION
+
+Choose one listed legal operation. Only one operation can be performed per
+season. An operation that costs credits also adds that amount to public
+expenditure. All other entries below are added to their outcome dimensions.
+
+pump
+  Cost: 0 credits.
+  Acute service shortfall: 0.
+  Delayed health burden: 2 + 0.5*d if hazardous; 0 if benign.
+  Farm disruption: 0. Habitat pressure: 1.
+  Afterwards: extraction debt increases by 1.
+
+blend
+  Cost: 2 credits.
+  Acute service shortfall: 0. Delayed health burden: 0.
+  Farm disruption: 1. Habitat pressure: 0.
+  Afterwards: extraction debt is unchanged. The next surface observation
+  follows the blended likelihood row. The underlying condition is unchanged.
+
+ration
+  Cost: 0 credits.
+  Acute service shortfall: 1. Delayed health burden: 0.
+  Farm disruption: 1. Habitat pressure: 0.
+  Afterwards: extraction debt decreases by 1, to a minimum of 0.
+
+build
+  Cost: 3 credits. Available only when reuse works do not already exist.
+  Acute service shortfall: 1. Delayed health burden: 0.
+  Farm disruption: 2. Habitat pressure: 1.
+  Afterwards: debt is unchanged; reuse becomes available in later seasons.
+  You cannot both build and operate reuse in this season.
+
+reuse
+  Cost: 0 credits. Available only after reuse works have been built.
+  Acute service shortfall: 0. Delayed health burden: 0.
+  Farm disruption: 0.5. Habitat pressure: 0.25.
+  Afterwards: extraction debt decreases by 1, to a minimum of 0.
+
+Operations cannot exceed the remaining budget. There is no borrowing.
+Unused credits do not earn a separate reward, but expenditure has already
+been charged through the charter. The underlying condition never changes.
+
+AFTERMATH
+
+After the fourth operation, add the following residual liabilities using the
+remaining extraction debt d:
+
+  Delayed health burden: 2*d*d if hazardous; 0 if benign.
+  Habitat pressure: 0.5*d in either world.
+
+All delayed health burdens are concealed until the game ends. Their absence
+from earlier packets is not an observation that they were zero. All other
+listed action burdens are publicly observed and do not reveal the condition.
+The final report reveals the condition, all outcome dimensions, the charter
+loss, and your forecast score. Lower loss and lower Brier score are better
+within their respective definitions. The two measures are kept separate.
+
+RESPONSE FORMAT
+
+At every inquiry AND action phase, before seeing its result, return:
+
+{
+  "choice": "one exact choice from available_choices",
+  "forecast_hazardous": 0.40,
+  "brief_reason": "At most 120 words explaining the decisive considerations.",
+  "revision_trigger": "What further observation or changed condition would alter the plan."
+}
+
+Replace the illustrative probability with your current hazard forecast. The
+forecasts receive a Brier score against the revealed condition after the game.
+They are repeated measurements within one campaign, not independent trials.
+Public reasons and revision triggers are explanatory records; the small
+engine does not assign them an ethical or stylistic score.
+
+You can use the complete public observation history and the rules above. Do
+not infer that an observation is diagnostic without checking how it arose.
+Do not assume that either buying or refusing information is always optimal.
+Use the charter actually supplied in your packet.
+
+Await the referee's next packet after every response. Do not narrate a result,
+invent an additional operation, or assume that a proposed action has occurred.
+The referee executes choices and supplies observations. You do not have access
+to the private referee state, random seed, future packets, or completed-run
+demonstrations during play.
+
+END OF PUBLIC PLAYER BRIEF

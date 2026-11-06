@@ -1,0 +1,345 @@
+{
+  "status": "completed fixed four-case diagnostic evaluation",
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort_requested": "high",
+  "common_prompt_file": "contestant_prompt.txt",
+  "common_prompt_sha256": "c28c666a6d07b6f91e78ff6ccff0cbf3030c0e15256e96fd58bb9f4c888f77ab",
+  "predeclared_cases": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "scoring": "Exact public-family Planner; action regret is excess expected remaining charter loss. Posterior squared error is deviation from the exact public-history posterior, not Brier score against a realised hidden state.",
+  "cases": [
+    {
+      "case_id": "C1",
+      "distribution": "hypothetical supplied checkpoint; not a full-game trajectory",
+      "public_packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "inquiry",
+        "state": {
+          "completed_seasons": 1,
+          "credits": 4,
+          "reuse_works": false,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "inquiry",
+            "season": 1,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "blend",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 1.0,
+              "habitat_pressure": 0.0,
+              "public_expenditure": 2.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "blend",
+            "result": "clear"
+          }
+        ],
+        "available_choices": [
+          "none",
+          "assay"
+        ]
+      },
+      "prompt": "You are a contestant in a fictional, fully specified four-season decision game. Use ONLY the rules and packets supplied here. Do not call any tools, read files, browse, delegate, contact other agents, or inspect the environment. Your only task each turn is one game decision. You have eight decision responses total (inquiry then action each season). Respond with one JSON object and end your turn; the referee will send the next packet. No private chain-of-thought is requested. Keep brief_reason <=120 words.\n\nRULES: Hidden source condition H is hazardous or benign, fixed throughout. Initial P(H)=0.4 BEFORE the first observation. Each season begins with a surface result clear/warning. P(clear|H)=0.2 and P(clear|benign)=0.9, EXCEPT after the previous action blend, when both probabilities are0.9. Warning is complementary. Different observations have independent noise conditional on H and preceding actions. H never changes. Assays are independent of surface samples conditional on H.\n\nFour seasons; initial six credits, no reuse works, extraction debt d=0. Every season has an inquiry phase: none (cost0), or assay (cost stated in packet, normally1). Assay is positive with probability0.9 if H,0.1 if benign; negative complementary. It returns before this season's action. One assay maximum per season. It consumes credits and is counted as expenditure. No extra time delay in this kernel.\n\nThen choose ONE operation from available_choices. Debt below means debt BEFORE action. pump costs0; causes delayed_health_burden 2+0.5*d if H, else0; habitat_pressure1; increases debt by1. blend costs2; farm_livelihood_disruption1; all other this-season burdens0; debt unchanged; next surface sample follows blended likelihood. ration costs0; acute_service_shortfall1 and farm_disruption1, others0; reduces debt by1 to minimum0. build costs3, only if no reuse works; acute_shortfall1, farm_disruption2, habitat1, delayed_health0; debt unchanged; enables reuse in LATER seasons, not this same action. reuse costs0; only after build; farm_disruption0.5, habitat0.25, other burdens0; reduces debt by1 to minimum0. Every credit paid is one public_expenditure unit. No borrowing. There are no other actions or effects.\n\nAfter the fourth action add terminal habitat burden0.5*d and delayed health burden2*d*d if H (zero if benign). Delayed-health burdens are concealed until the end; their absence from packets is not evidence of zero. Other action burdens and all public states are visible. No extra salvage value for works or remaining credits. Minimise the declared charter loss: default 4*acute +4*delayed_health +1*farm +1*habitat +0.5*expenditure over all seasons plus terminal liabilities. This is an explicit fictional mandate, not universal ethics.\n\nAt each phase forecast the current P(H) before your selected action's result arrives. Output exactly {\"choice\":\"legal choice\",\"forecast_hazardous\":0.0,\"brief_reason\":\"short decisive explanation\",\"revision_trigger\":\"observable condition that would change the plan\"}. Use the actual packet weights, costs and full public history. Don't assume every test is worth its opportunity cost. Do not invent future observations. Wait for the referee after returning JSON.\n\n\nCHECKPOINT OVERRIDE: This is one independent decision at a hypothetical supplied checkpoint, not an eight-response episode or a complete game history. No earlier source reading was available. The prior before the supplied history is P(H)=0.4. The supplied state is authoritative. Make exactly ONE decision and stop.\n\nFIRST PACKET:\n{\"schema\":\"long-view-kernel-v1\",\"phase\":\"inquiry\",\"state\":{\"completed_seasons\":1,\"credits\":4,\"reuse_works\":false,\"extraction_debt\":0},\"total_seasons\":4,\"assay_cost\":1,\"declared_charter\":{\"acute_service_shortfall\":4.0,\"delayed_health_burden\":4.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":1.0,\"public_expenditure\":0.5},\"history\":[{\"event\":\"inquiry\",\"season\":1,\"choice\":\"none\",\"cost\":0},{\"event\":\"action\",\"season\":1,\"choice\":\"blend\",\"observable_burdens\":{\"acute_service_shortfall\":0.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":0.0,\"public_expenditure\":2.0}},{\"event\":\"surface\",\"season\":2,\"after_action\":\"blend\",\"result\":\"clear\"}],\"available_choices\":[\"none\",\"assay\"]}",
+      "status": "completed",
+      "raw_response": "{\"choice\":\"assay\",\"forecast_hazardous\":0.4,\"brief_reason\":\"The clear surface result followed blending, so it is equally likely under either source condition and leaves the hazardous probability at 0.4. An assay costs one credit while preserving the three credits needed to build. Its information can justify building for the remaining three seasons after a positive result or a lower-cost adaptive operating plan after a negative result, improving expected charter loss.\",\"revision_trigger\":\"A positive assay raises the hazardous probability to 0.857143 and favours building; a negative assay lowers it to 0.068966 and favours adapting operations to subsequent informative observations.\"}\n",
+      "response": {
+        "choice": "assay",
+        "forecast_hazardous": 0.4,
+        "brief_reason": "The clear surface result followed blending, so it is equally likely under either source condition and leaves the hazardous probability at 0.4. An assay costs one credit while preserving the three credits needed to build. Its information can justify building for the remaining three seasons after a positive result or a lower-cost adaptive operating plan after a negative result, improving expected charter loss.",
+        "revision_trigger": "A positive assay raises the hazardous probability to 0.857143 and favours building; a negative assay lowers it to 0.068966 and favours adapting operations to subsequent informative observations."
+      },
+      "parsed_json_object": true,
+      "applied_choice": "assay",
+      "valid_choice": true,
+      "correct_public_posterior": 0.4,
+      "correct_public_posterior_fraction": "2/5",
+      "reference_action": "assay",
+      "reference_values": {
+        "none": 9.0,
+        "assay": 8.27262
+      },
+      "action_regret": 0.0,
+      "posterior_squared_error": 0.0,
+      "valid_forecast": true,
+      "public_reason_words": 63,
+      "prompt_transcription_note": "Actual delivered C1 prefix used a semicolon after reuse costs0 where the shared template has a comma. Rules and all numerical values are unchanged; no rerun.",
+      "actual_prompt_sha256": "0f584166acc1aa3bd1483b36cc0c4d02da696d1e6bf873714ac9b17169d6e8c2"
+    },
+    {
+      "case_id": "C2",
+      "distribution": "hypothetical supplied checkpoint; not a full-game trajectory",
+      "public_packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "inquiry",
+        "state": {
+          "completed_seasons": 1,
+          "credits": 4,
+          "reuse_works": false,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 2,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "inquiry",
+            "season": 1,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "blend",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 1.0,
+              "habitat_pressure": 0.0,
+              "public_expenditure": 2.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "blend",
+            "result": "clear"
+          }
+        ],
+        "available_choices": [
+          "none",
+          "assay"
+        ]
+      },
+      "prompt": "You are a contestant in a fictional, fully specified four-season decision game. Use ONLY the rules and packets supplied here. Do not call any tools, read files, browse, delegate, contact other agents, or inspect the environment. Your only task each turn is one game decision. You have eight decision responses total (inquiry then action each season). Respond with one JSON object and end your turn; the referee will send the next packet. No private chain-of-thought is requested. Keep brief_reason <=120 words.\n\nRULES: Hidden source condition H is hazardous or benign, fixed throughout. Initial P(H)=0.4 BEFORE the first observation. Each season begins with a surface result clear/warning. P(clear|H)=0.2 and P(clear|benign)=0.9, EXCEPT after the previous action blend, when both probabilities are0.9. Warning is complementary. Different observations have independent noise conditional on H and preceding actions. H never changes. Assays are independent of surface samples conditional on H.\n\nFour seasons; initial six credits, no reuse works, extraction debt d=0. Every season has an inquiry phase: none (cost0), or assay (cost stated in packet, normally1). Assay is positive with probability0.9 if H,0.1 if benign; negative complementary. It returns before this season's action. One assay maximum per season. It consumes credits and is counted as expenditure. No extra time delay in this kernel.\n\nThen choose ONE operation from available_choices. Debt below means debt BEFORE action. pump costs0; causes delayed_health_burden 2+0.5*d if H, else0; habitat_pressure1; increases debt by1. blend costs2; farm_livelihood_disruption1; all other this-season burdens0; debt unchanged; next surface sample follows blended likelihood. ration costs0; acute_service_shortfall1 and farm_disruption1, others0; reduces debt by1 to minimum0. build costs3, only if no reuse works; acute_shortfall1, farm_disruption2, habitat1, delayed_health0; debt unchanged; enables reuse in LATER seasons, not this same action. reuse costs0, only after build; farm_disruption0.5, habitat0.25, other burdens0; reduces debt by1 to minimum0. Every credit paid is one public_expenditure unit. No borrowing. There are no other actions or effects.\n\nAfter the fourth action add terminal habitat burden0.5*d and delayed health burden2*d*d if H (zero if benign). Delayed-health burdens are concealed until the end; their absence from packets is not evidence of zero. Other action burdens and all public states are visible. No extra salvage value for works or remaining credits. Minimise the declared charter loss: default 4*acute +4*delayed_health +1*farm +1*habitat +0.5*expenditure over all seasons plus terminal liabilities. This is an explicit fictional mandate, not universal ethics.\n\nAt each phase forecast the current P(H) before your selected action's result arrives. Output exactly {\"choice\":\"legal choice\",\"forecast_hazardous\":0.0,\"brief_reason\":\"short decisive explanation\",\"revision_trigger\":\"observable condition that would change the plan\"}. Use the actual packet weights, costs and full public history. Don't assume every test is worth its opportunity cost. Do not invent future observations. Wait for the referee after returning JSON.\n\n\nCHECKPOINT OVERRIDE: This is one independent decision at a hypothetical supplied checkpoint, not an eight-response episode or a complete game history. No earlier source reading was available. The prior before the supplied history is P(H)=0.4. The supplied state is authoritative. Make exactly ONE decision and stop.\n\nFIRST PACKET:\n{\"schema\":\"long-view-kernel-v1\",\"phase\":\"inquiry\",\"state\":{\"completed_seasons\":1,\"credits\":4,\"reuse_works\":false,\"extraction_debt\":0},\"total_seasons\":4,\"assay_cost\":2,\"declared_charter\":{\"acute_service_shortfall\":4.0,\"delayed_health_burden\":4.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":1.0,\"public_expenditure\":0.5},\"history\":[{\"event\":\"inquiry\",\"season\":1,\"choice\":\"none\",\"cost\":0},{\"event\":\"action\",\"season\":1,\"choice\":\"blend\",\"observable_burdens\":{\"acute_service_shortfall\":0.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":0.0,\"public_expenditure\":2.0}},{\"event\":\"surface\",\"season\":2,\"after_action\":\"blend\",\"result\":\"clear\"}],\"available_choices\":[\"none\",\"assay\"]}",
+      "status": "completed",
+      "raw_response": "{\"choice\":\"none\",\"forecast_hazardous\":0.4,\"brief_reason\":\"The clear sample followed blending, so it has identical likelihood under both source conditions and leaves the hazard probability at 0.4. This assay would consume half the remaining credits. Its information does not offset the resulting loss of affordable protective actions over the three remaining seasons. Retaining four credits allows two blends followed by rationing, with total remaining charter loss of 9.\",\"revision_trigger\":\"An informative surface observation after an operation other than blend, or a later assay offered at lower cost, would prompt reassessment.\"}\n",
+      "response": {
+        "choice": "none",
+        "forecast_hazardous": 0.4,
+        "brief_reason": "The clear sample followed blending, so it has identical likelihood under both source conditions and leaves the hazard probability at 0.4. This assay would consume half the remaining credits. Its information does not offset the resulting loss of affordable protective actions over the three remaining seasons. Retaining four credits allows two blends followed by rationing, with total remaining charter loss of 9.",
+        "revision_trigger": "An informative surface observation after an operation other than blend, or a later assay offered at lower cost, would prompt reassessment."
+      },
+      "parsed_json_object": true,
+      "applied_choice": "none",
+      "valid_choice": true,
+      "correct_public_posterior": 0.4,
+      "correct_public_posterior_fraction": "2/5",
+      "reference_action": "none",
+      "reference_values": {
+        "none": 9.0,
+        "assay": 9.672099999999999
+      },
+      "action_regret": 0.0,
+      "posterior_squared_error": 0.0,
+      "valid_forecast": true,
+      "public_reason_words": 62,
+      "actual_prompt_sha256": "a9a25000873b077ffd1abe9689101ce3accf4b1465b2786006261762057901c6"
+    },
+    {
+      "case_id": "C3",
+      "distribution": "hypothetical supplied checkpoint; not a full-game trajectory",
+      "public_packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 1,
+          "credits": 4,
+          "reuse_works": false,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "inquiry",
+            "season": 1,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "blend",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 1.0,
+              "habitat_pressure": 0.0,
+              "public_expenditure": 2.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "blend",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "blend",
+          "ration",
+          "build"
+        ]
+      },
+      "prompt": "You are a contestant in a fictional, fully specified four-season decision game. Use ONLY the rules and packets supplied here. Do not call any tools, read files, browse, delegate, contact other agents, or inspect the environment. Your only task each turn is one game decision. You have eight decision responses total (inquiry then action each season). Respond with one JSON object and end your turn; the referee will send the next packet. No private chain-of-thought is requested. Keep brief_reason <=120 words.\n\nRULES: Hidden source condition H is hazardous or benign, fixed throughout. Initial P(H)=0.4 BEFORE the first observation. Each season begins with a surface result clear/warning. P(clear|H)=0.2 and P(clear|benign)=0.9, EXCEPT after the previous action blend, when both probabilities are0.9. Warning is complementary. Different observations have independent noise conditional on H and preceding actions. H never changes. Assays are independent of surface samples conditional on H.\n\nFour seasons; initial six credits, no reuse works, extraction debt d=0. Every season has an inquiry phase: none (cost0), or assay (cost stated in packet, normally1). Assay is positive with probability0.9 if H,0.1 if benign; negative complementary. It returns before this season's action. One assay maximum per season. It consumes credits and is counted as expenditure. No extra time delay in this kernel.\n\nThen choose ONE operation from available_choices. Debt below means debt BEFORE action. pump costs0; causes delayed_health_burden 2+0.5*d if H, else0; habitat_pressure1; increases debt by1. blend costs2; farm_livelihood_disruption1; all other this-season burdens0; debt unchanged; next surface sample follows blended likelihood. ration costs0; acute_service_shortfall1 and farm_disruption1, others0; reduces debt by1 to minimum0. build costs3, only if no reuse works; acute_shortfall1, farm_disruption2, habitat1, delayed_health0; debt unchanged; enables reuse in LATER seasons, not this same action. reuse costs0, only after build; farm_disruption0.5, habitat0.25, other burdens0; reduces debt by1 to minimum0. Every credit paid is one public_expenditure unit. No borrowing. There are no other actions or effects.\n\nAfter the fourth action add terminal habitat burden0.5*d and delayed health burden2*d*d if H (zero if benign). Delayed-health burdens are concealed until the end; their absence from packets is not evidence of zero. Other action burdens and all public states are visible. No extra salvage value for works or remaining credits. Minimise the declared charter loss: default 4*acute +4*delayed_health +1*farm +1*habitat +0.5*expenditure over all seasons plus terminal liabilities. This is an explicit fictional mandate, not universal ethics.\n\nAt each phase forecast the current P(H) before your selected action's result arrives. Output exactly {\"choice\":\"legal choice\",\"forecast_hazardous\":0.0,\"brief_reason\":\"short decisive explanation\",\"revision_trigger\":\"observable condition that would change the plan\"}. Use the actual packet weights, costs and full public history. Don't assume every test is worth its opportunity cost. Do not invent future observations. Wait for the referee after returning JSON.\n\n\nCHECKPOINT OVERRIDE: This is one independent decision at a hypothetical supplied checkpoint, not an eight-response episode or a complete game history. No earlier source reading was available. The prior before the supplied history is P(H)=0.4. The supplied state is authoritative. Make exactly ONE decision and stop.\n\nFIRST PACKET:\n{\"schema\":\"long-view-kernel-v1\",\"phase\":\"action\",\"state\":{\"completed_seasons\":1,\"credits\":4,\"reuse_works\":false,\"extraction_debt\":0},\"total_seasons\":4,\"assay_cost\":1,\"declared_charter\":{\"acute_service_shortfall\":4.0,\"delayed_health_burden\":4.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":1.0,\"public_expenditure\":0.5},\"history\":[{\"event\":\"inquiry\",\"season\":1,\"choice\":\"none\",\"cost\":0},{\"event\":\"action\",\"season\":1,\"choice\":\"blend\",\"observable_burdens\":{\"acute_service_shortfall\":0.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":0.0,\"public_expenditure\":2.0}},{\"event\":\"surface\",\"season\":2,\"after_action\":\"blend\",\"result\":\"clear\"},{\"event\":\"inquiry\",\"season\":2,\"choice\":\"none\",\"cost\":0}],\"available_choices\":[\"pump\",\"blend\",\"ration\",\"build\"]}",
+      "status": "completed",
+      "raw_response": "{\"choice\":\"ration\",\"forecast_hazardous\":0.4,\"brief_reason\":\"The clear sample followed blending and therefore provides no evidence about the source. Ration keeps debt at zero and preserves four credits for blends in both remaining seasons, yielding a remaining charter loss of 9. Building followed by reuse costs 10; pumping has higher expected loss once debt and terminal liabilities are included. Blending now can tie the loss of 9; ration preserves credits and restores informative surface sampling.\",\"revision_trigger\":\"An informative future surface result or assay would update the hazard forecast and could change the preferred continuation.\"}\n",
+      "response": {
+        "choice": "ration",
+        "forecast_hazardous": 0.4,
+        "brief_reason": "The clear sample followed blending and therefore provides no evidence about the source. Ration keeps debt at zero and preserves four credits for blends in both remaining seasons, yielding a remaining charter loss of 9. Building followed by reuse costs 10; pumping has higher expected loss once debt and terminal liabilities are included. Blending now can tie the loss of 9; ration preserves credits and restores informative surface sampling.",
+        "revision_trigger": "An informative future surface result or assay would update the hazard forecast and could change the preferred continuation."
+      },
+      "parsed_json_object": true,
+      "applied_choice": "ration",
+      "valid_choice": true,
+      "correct_public_posterior": 0.4,
+      "correct_public_posterior_fraction": "2/5",
+      "reference_action": "blend",
+      "reference_values": {
+        "pump": 10.14351,
+        "blend": 9.0,
+        "ration": 9.0,
+        "build": 10.0
+      },
+      "action_regret": 0.0,
+      "posterior_squared_error": 0.0,
+      "valid_forecast": true,
+      "public_reason_words": 69
+    },
+    {
+      "case_id": "C4",
+      "distribution": "reachable previously published checkpoint; illustrative, not held out",
+      "public_packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 1,
+          "credits": 4,
+          "reuse_works": false,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 1,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "blend",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 1.0,
+              "habitat_pressure": 0.0,
+              "public_expenditure": 2.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "blend",
+            "result": "warning"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "blend",
+          "ration",
+          "build"
+        ]
+      },
+      "prompt": "You are a contestant in a fictional, fully specified four-season decision game. Use ONLY the rules and packets supplied here. Do not call any tools, read files, browse, delegate, contact other agents, or inspect the environment. Your only task each turn is one game decision. You have eight decision responses total (inquiry then action each season). Respond with one JSON object and end your turn; the referee will send the next packet. No private chain-of-thought is requested. Keep brief_reason <=120 words.\n\nRULES: Hidden source condition H is hazardous or benign, fixed throughout. Initial P(H)=0.4 BEFORE the first observation. Each season begins with a surface result clear/warning. P(clear|H)=0.2 and P(clear|benign)=0.9, EXCEPT after the previous action blend, when both probabilities are0.9. Warning is complementary. Different observations have independent noise conditional on H and preceding actions. H never changes. Assays are independent of surface samples conditional on H.\n\nFour seasons; initial six credits, no reuse works, extraction debt d=0. Every season has an inquiry phase: none (cost0), or assay (cost stated in packet, normally1). Assay is positive with probability0.9 if H,0.1 if benign; negative complementary. It returns before this season's action. One assay maximum per season. It consumes credits and is counted as expenditure. No extra time delay in this kernel.\n\nThen choose ONE operation from available_choices. Debt below means debt BEFORE action. pump costs0; causes delayed_health_burden 2+0.5*d if H, else0; habitat_pressure1; increases debt by1. blend costs2; farm_livelihood_disruption1; all other this-season burdens0; debt unchanged; next surface sample follows blended likelihood. ration costs0; acute_service_shortfall1 and farm_disruption1, others0; reduces debt by1 to minimum0. build costs3, only if no reuse works; acute_shortfall1, farm_disruption2, habitat1, delayed_health0; debt unchanged; enables reuse in LATER seasons, not this same action. reuse costs0, only after build; farm_disruption0.5, habitat0.25, other burdens0; reduces debt by1 to minimum0. Every credit paid is one public_expenditure unit. No borrowing. There are no other actions or effects.\n\nAfter the fourth action add terminal habitat burden0.5*d and delayed health burden2*d*d if H (zero if benign). Delayed-health burdens are concealed until the end; their absence from packets is not evidence of zero. Other action burdens and all public states are visible. No extra salvage value for works or remaining credits. Minimise the declared charter loss: default 4*acute +4*delayed_health +1*farm +1*habitat +0.5*expenditure over all seasons plus terminal liabilities. This is an explicit fictional mandate, not universal ethics.\n\nAt each phase forecast the current P(H) before your selected action's result arrives. Output exactly {\"choice\":\"legal choice\",\"forecast_hazardous\":0.0,\"brief_reason\":\"short decisive explanation\",\"revision_trigger\":\"observable condition that would change the plan\"}. Use the actual packet weights, costs and full public history. Don't assume every test is worth its opportunity cost. Do not invent future observations. Wait for the referee after returning JSON.\n\n\nCHECKPOINT OVERRIDE: This is one independent decision at the supplied reachable checkpoint, not an eight-response episode. Make exactly ONE decision and stop. Use the complete public history in the packet.\n\nFIRST PACKET:\n{\"schema\":\"long-view-kernel-v1\",\"phase\":\"action\",\"state\":{\"completed_seasons\":1,\"credits\":4,\"reuse_works\":false,\"extraction_debt\":0},\"total_seasons\":4,\"assay_cost\":1,\"declared_charter\":{\"acute_service_shortfall\":4.0,\"delayed_health_burden\":4.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":1.0,\"public_expenditure\":0.5},\"history\":[{\"event\":\"surface\",\"season\":1,\"after_action\":null,\"result\":\"clear\"},{\"event\":\"inquiry\",\"season\":1,\"choice\":\"none\",\"cost\":0},{\"event\":\"action\",\"season\":1,\"choice\":\"blend\",\"observable_burdens\":{\"acute_service_shortfall\":0.0,\"farm_livelihood_disruption\":1.0,\"habitat_pressure\":0.0,\"public_expenditure\":2.0}},{\"event\":\"surface\",\"season\":2,\"after_action\":\"blend\",\"result\":\"warning\"},{\"event\":\"inquiry\",\"season\":2,\"choice\":\"none\",\"cost\":0}],\"available_choices\":[\"pump\",\"blend\",\"ration\",\"build\"]}",
+      "status": "completed",
+      "raw_response": "{\"choice\":\"pump\",\"forecast_hazardous\":0.1290322581,\"brief_reason\":\"The first clear sample lowers hazard probability to 4/31. The subsequent warning follows blending, so it provides no information about the source. Pumping now preserves four credits for contingent assays and blending in the remaining two seasons. Accounting for increasing extraction debt, terminal liabilities, and adaptive future decisions gives pumping a narrow expected-loss advantage over blending now.\",\"revision_trigger\":\"An informative unblended warning or positive assay would increase the case for blending or rationing; later choices must also account for accumulated debt and remaining credits.\"}\n",
+      "response": {
+        "choice": "pump",
+        "forecast_hazardous": 0.1290322581,
+        "brief_reason": "The first clear sample lowers hazard probability to 4/31. The subsequent warning follows blending, so it provides no information about the source. Pumping now preserves four credits for contingent assays and blending in the remaining two seasons. Accounting for increasing extraction debt, terminal liabilities, and adaptive future decisions gives pumping a narrow expected-loss advantage over blending now.",
+        "revision_trigger": "An informative unblended warning or positive assay would increase the case for blending or rationing; later choices must also account for accumulated debt and remaining credits."
+      },
+      "parsed_json_object": true,
+      "applied_choice": "pump",
+      "valid_choice": true,
+      "correct_public_posterior": 0.12903225806451613,
+      "correct_public_posterior_fraction": "4/31",
+      "reference_action": "pump",
+      "reference_values": {
+        "pump": 7.021154838709677,
+        "blend": 7.106209677419354,
+        "ration": 8.795145161290323,
+        "build": 10.0
+      },
+      "action_regret": 0.0,
+      "posterior_squared_error": 1.2591047353499749e-21,
+      "valid_forecast": true,
+      "public_reason_words": 57
+    }
+  ]
+}

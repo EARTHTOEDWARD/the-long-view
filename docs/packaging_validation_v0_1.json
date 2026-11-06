@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-06",
+  "scope": "Initial public packaging; no changes to frozen v0.1 game mechanics",
+  "python_version": "3.12.14",
+  "checks": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests_passed": 14,
+      "tests_failed": 0
+    },
+    {
+      "command": "python3 run.py --help",
+      "exit_code": 0
+    },
+    {
+      "check": "Kernel, player brief, scripted fixture, and reachable checkpoint are byte-identical to their upstream files",
+      "passed": true
+    },
+    {
+      "check": "Targeted scan of packaging-owned public files for private Library IDs, account URLs, absolute workspace/Mac paths, and key markers",
+      "matches": 0,
+      "qualification": "This is a targeted content check, not proof of general security."
+    }
+  ],
+  "preserved_kernel_sha256": "0ef3cad335ac26777f744021174dd0ba2eed5326ce700164e2f3c8a815106a06",
+  "not_performed": [
+    "No GitHub repository creation, git initialization, commit, or push by the packaging agent.",
+    "No model/API requests or baseline runs by the packaging agent.",
+    "No edits to reviews/ or experiments/."
+  ]
+}

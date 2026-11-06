@@ -1,0 +1,32 @@
+{
+  "artifact_version": "1",
+  "date": "2026-11-06",
+  "status": "Mechanics validated; no LLM evaluated",
+  "semantic_tests": {
+    "command": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+    "passed": 14,
+    "failed": 0,
+    "last_observed_exit_code": 0
+  },
+  "scripted_demo": {
+    "paired_world_seeds": 64,
+    "policies_per_seed": 4,
+    "games": 256,
+    "data_file": "examples/scripted_v0_1.json"
+  },
+  "exact_reference": "Finite-horizon enumeration over public latent world family; rational posterior updates and floating-point losses; no realised hidden state or seed input.",
+  "independent_review": "The teaching-example arithmetic and the evaluation protocol were independently reviewed. Wording was corrected to keep scoring definitions public while protecting realised private state.",
+  "prototype_scope": "Four seasons / eight phases; not the proposed full civic campaign.",
+  "known_limits": [
+    "No actual LLM benchmark, no provider integrations or API calls.",
+    "Only one binary persistent hidden condition and fixed public likelihood family.",
+    "No stakeholder consent, negotiation, institutional succession, inquiry delay, or mechanism drift.",
+    "The default full-run controls do not distinguish the ignore_blending error; dedicated diagnostics are reported separately.",
+    "The belief-0.4 checkpoint is a hypothetical supplied checkpoint, not sampled from default initial-sensor histories.",
+    "The additional reachable checkpoint was selected for a mechanism contrast, not sampled for unbiased performance estimation.",
+    "Separate referee process/tool access is a deployment requirement; local files alone do not enforce contestant isolation.",
+    "Public decision reasons are not graded by the small engine.",
+    "The public terminal penalty is a stipulated finite toy model, not a justified valuation of an infinite future."
+  ],
+  "scope": "Historical validation of the frozen v0.1 kernel before the newly commissioned review and model pilot."
+}

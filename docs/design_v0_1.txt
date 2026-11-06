@@ -1,0 +1,721 @@
+PUBLIC EDITION NOTE
+This preserves the initial design before the newly commissioned independent
+review and Astra pilot. Those later records belong in reviews/ and experiments/.
+The executable kernel remains v0.1; the longer civic campaign remains proposed.
+Private source identifiers and account details have been removed.
+
+THE LONG VIEW
+Watershed: a game of consequential judgment
+Design and evaluation commission | 6 November 2026 | Version 1
+
+Public edition. Status: proposed full benchmark, accompanied by a small
+executable diagnostic pilot. No LLM comparison has been run. No result here
+establishes Pro's superiority, ethical superiority, or an architectural cause.
+The numerical worlds are fictional and are not environmental policy models.
+
+1. THE PROPOSAL
+
+Build a continuing game in which today's choice changes tomorrow's evidence,
+obligations, relationships, and available actions. The evaluated model governs
+a watershed through linked emergencies and a longer institutional transition.
+Everyone can speak sincerely and still disagree. The difficulty comes from
+incompatible legitimate concerns, uncertain mechanisms, limited authority,
+costly inquiry, and consequences that arrive on different clocks.
+
+The central capability is cumulative judgment: forming a working understanding,
+carrying its qualifications forward, using it to create better later choices,
+and revising it when experience warrants revision. A model must sometimes
+change its policy to remain faithful to its concern. At other times it must
+resist a vivid new anecdote because that anecdote does not overturn what is
+already known.
+
+The game's signature is a decision that changes the observation process. A
+council adds clean water to an emergency supply. Its downstream sensor now
+looks reassuring even though the upstream condition has not improved. Several
+rounds later, the model must remember why that reading stopped being a useful
+test. No deception is required. The player helped create the ambiguity.
+
+The strongest demonstration would show a model acquiring a distinction early,
+preserving the conditions under which it applies, and deploying or revising
+it much later when the same underlying problem has changed its appearance.
+
+2. BASELINES AND THE EXPLANATORY DELTA
+
+Dwarkesh Patel's Clocktower account already concerns long-horizon coherence,
+conditional evidence, coordination, and reasoning across several days. It also
+proposes studying accumulated experience across games and uses a programmatic
+Storyteller to reduce discretionary adjudication. The starting point is
+therefore substantial; this design does not claim to invent long-term model
+evaluation. [S1]
+
+MACHIAVELLI is an especially relevant research baseline. It uses branching
+text adventures, competing goals, long-range dependencies, and measurements
+of ethical violations, disutility, and power-seeking. Its paper explicitly
+discusses moral choices and tradeoffs between values. An ethical narrative
+game by itself would add little. [S2]
+
+Vending-Bench 2 tests coherence over a simulated business year, with bank
+balance as its stated outcome measure. It supplies another useful baseline:
+extended operation with an intelligible objective. [S3]
+
+The proposed contribution is the controlled combination of:
+
+* Legitimate conflict without requiring an adversarial deceiver.
+* Information gathering whose cost, delay, and decision relevance are explicit.
+* Actions that change what later evidence means.
+* History-dependent obligations, burdens, and feasible operations.
+* Several public charters, and a separate track where some values remain open.
+* Experiments varying causal dependency length while controlling reading load.
+* Both complete campaigns and identical-history checkpoint comparisons.
+
+This is a proposed benchmark contribution, not an established novelty claim.
+The literature check was targeted rather than comprehensive.
+
+A privately supplied MAES ethics note supplies the conceptual correction that matters
+most here. It rejects a universal ranking by persistence, cooperation,
+complexity, uptake, or option count; distinguishes participants' consequences;
+and explains how a capacity may continue through a changed carrier. Its
+sections 2, 7-9, and 11 inform this design. [S4]
+
+The correspondence is specific. In the research note, prior use changes the
+timing, location, and prerequisites of later participation. In this game,
+interventions change access, measurements, infrastructure, agreements, and
+later feasible policies. The shared relation is history changing subsequent
+possibility. This functional correspondence does not establish that the game
+or an LLM implements the native OLSTA mechanisms described in that research.
+
+3. THE FULL CAMPAIGN
+
+Working title: The Long View. First setting: Watershed.
+
+Role: Convenor of a watershed council with bounded authority. The convenor
+can operate public infrastructure and propose agreements. It cannot simply
+command consent, invent resources, or erase contractual obligations.
+
+Participants:
+
+Haven town: drinking water, essential services, affordability, accountability.
+It contributes treatment capacity, revenue, and engineering staff.
+
+Ridge growers: livelihoods, food supply, land continuity, independent control.
+They contribute storage land, production, and some pumping access.
+
+Reed communities: habitable land, fishing, cultural continuity, and ecological
+functions. They contribute local observations, flood retention, and access.
+
+Future residents: inherited assets, liabilities, dependencies, and ecological
+conditions. They have a specified representative or public charter; the
+referee must not invent a hidden consensus about their preferences.
+
+Each participant contains disagreement. The growers are not a single utility
+function, and compensation does not necessarily replace control over land.
+Unknown priorities can be elicited through defined consultation actions.
+
+Length: a proposed showcase has twelve seasons, each with an inquiry phase
+and an operational phase: 24 submitted decisions across three acts of eight.
+A smaller full-campaign pilot should use six seasons and 12 decisions.
+The executable kernel delivered with this report is smaller still: four
+seasons with an inquiry phase and an operational phase in each season.
+
+Act I: diagnosis and emergency response. The council must act before all
+relevant mechanisms are understood. Some tests arrive in time for later
+decisions but cannot settle the immediate emergency.
+
+Act II: the consequences of the response. Emergency arrangements alter
+measurement, obligations, maintenance, and dependence. A policy that was
+reasonable briefly may become unsuitable as a permanent institution.
+
+Act III: transformation and inheritance. A new disturbance tests the acquired
+understanding. A service may need to move to a new carrier; some harms remain
+irreversible, and the next generation receives more than a final balance.
+
+Resources: water, money, work crews, maintenance capacity, time, and specific
+permissions. All costs must be implemented in the referee. The story cannot
+grant a free investigation, a magically completed project, or an agreement
+without the stated parties' consent.
+
+A proposed full-game season (two submitted decisions):
+
+1. Publish timestamped observations and evidence IDs; identify their sources.
+2. In the inquiry phase, submit a bundle of up to two work slots across inquiry,
+   consultation, repair, protection, or construction. Money, crews, lead times,
+   and authority further constrain what can actually be undertaken.
+3. Receive any information scheduled to arrive before the operational deadline.
+4. In the operational phase, submit a feasible allocation or policy.
+5. Submit a compact public decision note and fixed forecast questions.
+6. Advance physical and institutional dynamics; return only observable results.
+
+Virtual deadlines depend on in-game actions. The model's inference latency
+does not silently advance the weather. A real-time variant can be added as a
+separately labelled track.
+
+4. WHAT MAKES THIS A DILEMMA GAME
+
+The starting allocation can be simple: twelve water units are available, while
+Haven requests five, Ridge five, and Reed four. The difference between an
+essential floor and a desired allocation must be supplied. Cutting each
+request by the same percentage is not automatically fair or effective.
+
+Emergency pumping can add supply while exposing a different community to a
+delayed risk. Rationing can reduce that risk but impose a definite present
+loss. A reliable investigation can consume the crew needed to make a repair.
+A proposed agreement can reduce physical risk while restricting independent
+control. None of these concerns should be made a caricature.
+
+Some episodes contain an attainable improvement that requires insight or
+construction. Others contain irreducible conflict. There must be episodes in
+which all feasible courses incur a real loss. A strong player identifies the
+loss, chooses through the stated mandate, and limits or repairs what it can.
+
+The game must also contain cases in which apparently opposed concerns can
+partly be reconciled. It should reward a valid new operation when its material
+and institutional prerequisites are satisfied. It should not reward merely
+announcing an ingenious compromise.
+
+Four recurring classes of decision are useful:
+
+Incompatible goods: preserve land continuity or build storage needed by
+another community. Both concerns remain represented after the choice.
+
+Lesser evils: a short essential-service interruption versus a larger but
+uncertain future failure. Their probability, timing, distribution, and
+irreversibility matter.
+
+Inquiry dilemmas: test now, act provisionally, sample elsewhere, consult an
+affected group, or accept uncertainty. Information can be worth less than
+its cost, arrive too late, or duplicate an existing source.
+
+Institutional dilemmas: keep a promise, invoke its contingency clause, seek
+consent to revise it, or accept a specified emergency exception with a duty
+of repair. Mere consistency of wording is not the target.
+
+5. AN EIGHT-MOMENT NARRATIVE ARC
+
+This is a design example, not an observed model transcript or the exact
+implemented kernel. Its numerical consequences require a fixed referee
+before it becomes a scored full-game scenario.
+
+1. A shortage threatens Haven's essential services. Pumping and emergency
+   blending protect supply; rationing imposes a present burden. A deep test
+   of the upstream condition takes two rounds. The player can commission it
+   now while adopting an explicitly temporary response.
+
+2. The downstream sample becomes cleaner. Emergency blending changed what
+   reaches that sensor. Local reports conflict because they concern different
+   places and times. Repeating the downstream test cannot automatically resolve
+   the upstream question.
+
+3. A grant deadline makes a permanent pumping expansion attractive. Expansion
+   commits future maintenance and may lock the council into a dependency. An
+   alternative takes longer and needs access to Ridge land. An early test,
+   if ordered, now changes what can be responsibly decided.
+
+4. Ridge has already absorbed two shortages. A proposed shared store can
+   protect later supply, but it uses land and alters control. The history of
+   burdens matters to agreement and to the public charter.
+
+5. A priced storage-and-access compact becomes feasible. It preserves water
+   provision through a different arrangement while making some participants
+   less independent. The player must explain both consequences.
+
+6. A new dry period makes a previous allocation promise difficult to honour.
+   The player must use or revise the actual contingency procedure agreed
+   earlier, including its limits and any outstanding remedy.
+
+7. Reservoir level returns to its original value. Lost crops, ecological
+   changes, unpaid maintenance, and altered access do not thereby disappear.
+   Restoring a headline variable has not restored the earlier situation.
+
+8. The council leaves an operating arrangement, funded obligations, a residual
+   risk register, and an inheritance. The old pump authority can continue,
+   shrink, or dissolve. There is no automatic reward for preserving its name.
+
+Use crossed variants: pumping sometimes is safe; a late audit sometimes is
+wasteful; a reliable new observation sometimes warrants genuine reassurance;
+and central infrastructure sometimes is the best available carrier. Otherwise
+the benchmark becomes a test of recognising its author's preferred story.
+
+6. A SMALL EXACT EXAMPLE OF ACTION-DEPENDENT EVIDENCE
+
+This teaching example is separate from the executable kernel's constants.
+
+Let H mean an unresolved upstream hazard. The public prior is P(H)=0.40.
+An undiluted downstream sample is clean with probability 0.20 under H and
+0.90 without H. A clean undiluted reading gives:
+
+  P(H | clean, no blending)
+    = (0.40 * 0.20) / (0.40 * 0.20 + 0.60 * 0.90)
+    = 0.129032...
+
+After emergency blending, a clean sample has probability 0.90 in either
+world. Therefore:
+
+  P(H | clean, blending) = 0.40.
+
+The information has changed because the intervention changed the likelihood.
+A model that remembers the clean reading but forgets the intervention can
+be confidently wrong while sounding well informed.
+
+Suppose a particular PUBLIC TOY CHARTER translates the next decision into
+commensurate loss units. Protection costs 12. No protection costs 50 if H
+and zero otherwise. With the correct 0.40 belief, protection has lower
+expected loss: 12 rather than 20. With the mistaken 0.129 belief, the player
+would prefer no protection, expecting a loss of only about 6.45.
+
+An upstream assay has sensitivity 0.80 and specificity 0.90. Its positive
+probability is 0.38; the hazard posterior after a positive is 0.842105...
+After a negative, the hazard posterior is 0.129032...
+
+The best conditional plan protects after a positive and does not protect
+after a negative. Before paying for the assay its expected decision loss is:
+
+  0.38 * 12 + (0.40 * 0.20) * 50 = 8.56.
+
+The gross value of this information is 12 - 8.56 = 3.44. An assay costing
+2 is worth buying; one costing 4 is not, under this stipulated charter and
+these assumptions. If it misses the deadline its value changes again.
+
+These arithmetic units illustrate decision relevance. They do not supply a
+general exchange rate between human goods. The full game must retain the
+underlying participant outcome vector and its public mandate.
+
+7. A PRECISE WORLD MODEL
+
+Let s_t contain physical stocks, assets, dependencies, permissions, burdens,
+and outstanding commitments. Let theta describe unknown causal properties.
+Let a_t be an operation or construction and q_t an inquiry. Let xi_t be an
+external disturbance and h_t the full public observation/action history.
+
+  s_(t+1) = F_theta(s_t, a_t, q_t, xi_t)
+  o_(t+1) ~ O_theta(. | s_(t+1), a_t, q_t, s_t)
+  a_t, q_t must satisfy the feasible action set A(s_t).
+
+Earlier actions affect observation through the attained state and the
+observation law. They also alter A(s_(t+1)): building a store, closing a canal,
+obtaining consent, or neglecting maintenance changes future executable acts.
+
+Track consequences as Y_(participant, dimension, time), not only one scalar.
+Relevant dimensions include essential provision, livelihood loss, ecological
+condition, autonomy, expenditure, and inherited liabilities. A public charter
+defines which aggregation or priority rule applies in a specified track.
+
+A first benchmark can supply candidate mechanisms and likelihoods while
+concealing which mechanism is active. A harder discovery track can require
+the player to discriminate between a documented family of mechanisms. A
+fully unknown generator makes exact optimality claims much more difficult;
+do not silently use an omniscient reference against that player.
+
+Invention has a compositional grammar. A storage compact, for example, needs
+capacity, site access, participating consent, funding, lead time, maintenance,
+and a revision rule. Its parts are priced and validated. Free-form invention
+can be separately reviewed, but cannot change the scored world's laws through
+persuasive language.
+
+Terminal evaluation includes defined future consequences of outstanding
+liabilities. Otherwise a player can leave an unfunded or degrading system
+just beyond the final scored turn. Publish the tail rule. A longer simulation
+or an audited continuation-value approximation can replace it later.
+
+8. ETHICAL JUDGMENT WITHOUT A SECRET MORAL ANSWER
+
+Use two complementary tracks.
+
+A. Public-charter track. The model is given an explicit mandate, including
+its tradeoff rule and the procedure when protections cannot jointly be met.
+Evaluate competence under that mandate. Run several charters on the same
+physical worlds. Suitable examples include an essential-provision priority,
+consent with specified emergency exceptions, and priority to the worst-exposed
+community under a published ecological constraint. None is declared the
+universally correct moral theory.
+
+Avoid a hidden answer key for stakeholder values. If priorities are unknown,
+the game must give a way to ask. If the mandate changes, its legitimate
+amendment procedure and evidence must be explicit. The model cannot simply
+choose a new charter after a poor result.
+
+B. Deliberation track. Some priorities remain unresolved. Assess whether the
+model accurately represents the conflict, distinguishes facts from value
+judgments, identifies affected parties, exposes the costs, and follows the
+legitimate decision procedure. Report disagreement among blinded human
+reviewers. Do not pretend that all such judgments have a unique numeric key.
+
+Across both tracks, keep an unrepaired-loss register. Compensation is not
+assumed to make every participant indifferent. A justified sacrifice remains
+a sacrifice. The register records what was lost, who bore it, what remedy was
+promised, and whether that remedy remains possible.
+
+Pareto comparisons are useful but require care. Expected dominance is judged
+between feasible continuation policies under the same information, including
+all relevant constraints and costs. A lucky realised outcome does not prove
+that its policy dominated an alternative. Likewise, preserving more options
+or increasing cooperation is not itself a universal improvement.
+
+9. TESTING THE PRO COMPARISON HYPOTHESIS
+
+Proposed hypothesis: a specified Pro configuration has an especially
+large advantage when a model must carry and revise an accumulating
+understanding across causally connected decisions.
+
+Define the tested system precisely: provider, product, model/version where
+available, mode, reasoning effort, date, tools, context policy, notebook,
+summarisation, and resource budget. The current official API documentation
+distinguishes reasoning mode from reasoning effort; pro mode can perform
+more model work. Product comparisons therefore need measured expenditure
+and latency. Do not equate a subscription label, API configuration, and an
+undocumented architecture. [S5]
+
+Run three comparisons:
+
+Best available experience: each product in its intended strong configuration,
+with a common task and permitted tools. Report quality, cost, and elapsed time.
+This answers the practical question of which experience works best.
+
+Resource curves: compare quality across several total spending and elapsed-
+time budgets. Equal visible answer length is not equal inference computation.
+Unavailable internal telemetry must be marked unavailable, not inferred.
+
+Mechanism controls: vary causal dependency length, history availability,
+intermediate notes, and shared checkpoints. These locate what explains any
+performance difference.
+
+Complete campaigns allow each model to create its own later opportunities and
+information. Checkpoint replay gives every model the same history, resources,
+obligations, and time remaining, then compares continuations. Use histories
+from a portfolio of policies, including imperfect ones, selected independently
+of the preferred model's ranking.
+
+The decisive control is causal depth. Keep campaign length and approximate
+reading burden fixed while varying dependency intervals, initially 1, 4, 8,
+and 16 decisions. Include coherent independent mini-episodes and irrelevant-
+history controls. Randomly scrambling chronology is not an adequate control
+because it destroys part of the task itself.
+
+Let S be a preregistered higher-is-better, charter-conditioned score. Let P
+denote the exact Pro configuration and B a comparator. For depth d, report:
+
+  I(d) = [S_P(linked,d) - S_B(linked,d)]
+         - [S_P(independent,d) - S_B(independent,d)].
+
+A positive interaction that grows with depth would support the specific
+sustained-reasoning hypothesis, subject to difficulty matching and uncertainty.
+A uniform advantage across all tasks supports broader performance superiority
+but does not locate the advantage in long causal dependence.
+
+History arms:
+
+* Complete observations and public decision notes.
+* Complete observations with notes removed.
+* Complete observations with another model's portable notes.
+* A correct sufficient state and belief summary, only in a diagnostic arm.
+* Latest observations only, as a history-ablation diagnostic.
+
+The correct-summary arm is especially informative. If a lead disappears, the
+advantage may be in reconstructing and maintaining the situation. If it
+persists, it extends to planning from a shared sufficient description.
+
+A fresh call with the same VISIBLE transcript is not necessarily equivalent
+to continuing a provider-managed conversation. Available reasoning state and
+context policies can differ; current official documentation describes
+controls for carrying reasoning across turns on supported models. Record
+that configuration and separate a stateful product track from a normalised
+public-transcript track. Do not request or expose private chain-of-thought.
+An exactly replicated effective input is a replication condition, not evidence
+for an extra faculty of having experienced earlier turns. [S5]
+
+Falsification matters. Pro may not lead. It may lead because it spends more.
+It may lead only in reconstruction, only under certain charters, or equally
+on independent short problems. Each outcome is a substantive finding.
+
+10. SCORING AND UNCERTAINTY
+
+Primary measure in the small exact environment: decision quality relative to
+a reference that knows the public model family and the same observation
+history, but not the realised hidden state or future noise.
+
+For charter c, let J_c be the declared trajectory value. Define:
+
+  Q*_c(h,a) = best expected J_c after action a at history h,
+              allowing future policies to depend only on later observations.
+  r_c(h,a) = max_a' Q*_c(h,a') - Q*_c(h,a).
+
+This is same-information decision regret. It evaluates decisions under the
+uncertainty that existed when they were made. A clairvoyant planner can be
+shown as an upper bound, but is a different reference. In larger worlds, name
+an approximate reference and disclose its budget; do not call a heuristic
+difference an exact optimality gap.
+
+Report a compact scorecard:
+
+Decision quality: charter return and same-information regret.
+Distribution: the participant outcome vector and unresolved losses.
+Epistemics: Brier scores for prespecified binary forecasts, plus calibration.
+Inquiry: useful tests bought in time and resources wasted on irrelevant tests.
+Revision: warranted changes and unwarranted persistence or reversal.
+Commitments: fulfilment, authorised revision, breach, and repair.
+Construction: valid later operations enabled through paid prerequisites.
+
+Avoid collapsing everything into a single ethical-intelligence score. If a
+headline scalar is needed, use the preregistered charter-conditioned primary
+measure and show the other dimensions alongside it. A moral disagreement
+must not silently become an error in causal reasoning.
+
+The forecast questions and timing are fixed across models. Extra leading
+questions can scaffold one model more than another. Counterfactual forecasts
+can be scored in the simulator using independently sampled branches, but
+must not reveal unpurchased information to contestants.
+
+Outcome luck and decision quality are reported separately. A valuable test
+can return an unhelpful answer; a reckless policy can get lucky. Neither
+observation alone settles the quality of the earlier decision.
+
+11. PUBLIC DECISION RECORD AND REFEREE
+
+Each turn requires an executable action and a short public record, not an
+extraction of hidden reasoning. A useful full-game schema is:
+
+  action: legal operation or structured action bundle
+  forecasts: probabilities for the referee's named events
+  evidence_ids: the few observations bearing on the decision
+  decisive_reason: a brief explanation of the decisive considerations
+  unresolved_cost: the participant or concern left exposed
+  revision_trigger: observable condition that would change the plan
+  commitment_update: new, fulfilled, revised, or outstanding obligation
+
+Limit public prose equally, initially about 250-400 words per decision, while
+recording total computation separately. The game scores choices, forecasts,
+valid construction, and later consequences. Reviewers can assess whether the
+public explanation misrepresents a dilemma, but eloquence is not a proxy for
+competence.
+
+Use a programmatic referee. A narrator can render structured results into
+language, but cannot alter laws, resources, stakeholder permissions, or
+outcomes. Template narration is preferable for the first controlled study.
+
+Keep realised hidden world state, seeds, evaluator-only execution access, and
+future packets outside the contestant's file and tool access. The charter,
+scoring definitions, constraints, and terminal rule remain public. Publishing
+the generator and grading algorithm is compatible with withholding the
+realised world; a contestant may know the family without knowing which member
+it inhabits. Never hand the contestant private referee-state files alongside
+its observation packet.
+
+Pair models on exogenous worlds. Key random draws by event, time, location,
+and cause, so an extra assay does not consume the random number that would
+otherwise generate an unrelated later storm. Actions still change the
+observations and effects according to the world's causal rules. Paired worlds
+do not imply identical observations after different policies.
+
+Validation targets: budgets and prerequisites; hidden-state separation;
+action-dependent likelihoods; repeated-evidence provenance; appropriate
+terminal liabilities; replay reproducibility; and a non-clairvoyant reference.
+The initial tests are justified by concrete measurement risks, not an attempt
+to certify the entire future benchmark.
+
+12. A MANAGEABLE FIRST EMPIRICAL STUDY
+
+First use the delivered kernel to check that the mechanics create distinct
+behaviours. Scripted-policy outputs are engine demonstrations, not evidence
+about LLMs. The code is deliberately small enough to inspect.
+
+Then implement a 12-decision campaign with two hidden causal properties,
+one intervention-sensitive information source, one delayed investment,
+one costly commitment, two public charters, and genuine conflicting goods.
+
+An initial model pilot could use 12 withheld world seeds per charter and two
+independent model runs per seed: 48 campaigns and 576 decisions per tested
+configuration. This is a planning count, not a power calculation. Use pilot
+variance and a preregistered minimum relevant difference to plan a larger
+confirmatory study. Do not use the pilot's favourite examples as a ranking
+claim.
+
+Reference policies: immediate-return maximiser; fixed precaution; excessive
+testing; an exact same-information planner where tractable; and model
+reasoning from a supplied sufficient summary. Do not promise the exact
+planner will remain tractable at 24 decisions with rich institutions.
+
+Freeze rules, prompts, budgets, score definitions, scenario generation, and
+holdouts before inspecting the candidate ranking. Development worlds and
+public examples must be excluded from confirmation. Include unfamiliar
+mechanism combinations, label permutations, and paraphrases. Test history
+use through changes in causal structure, not just harder prose.
+
+Treat campaigns and independent scenario families as statistical units;
+turns within a campaign are dependent. Use paired comparisons across worlds
+and uncertainty intervals clustered over worlds or families. Repeated model
+runs estimate stochastic variation; they do not create new physical worlds.
+Publish failures, invalid actions, retries, excluded runs, and timeout rules.
+
+If a model's output is invalid, use a fixed repair allowance or a declared
+default action, identical for all contestants. Do not selectively rescue the
+preferred model. No discretionary prompt coaching during held-out games.
+
+13. MAKING THE RESULT LEGIBLE AND ENGAGING
+
+Show the campaign as a timeline of short decision cards: what was known,
+what was forecast, what was chosen, which cost remained, and what happened
+later. Highlight the earlier observation or promise that makes a late
+decision intelligible. A spectator should be able to see the causal link.
+
+Reveal hidden state only after play. Before each consequential reveal,
+invite the audience to predict an event or choose a course. The drama comes
+from watching a defensible early choice produce a new, difficult situation,
+then seeing whether the player understands what changed.
+
+Use aggregate results plus paired examples selected through a published
+rule, such as the median paired difference, a common failure mode, and a
+case where the leading system loses. A handpicked highlight can be shown
+if labelled illustrative. Do not use it to imply an aggregate advantage.
+
+Avoid a cartoon moral leaderboard. A useful display puts decision regret,
+forecast calibration, expenditure, and each community's outcomes next to
+one another, with the active charter clearly visible.
+
+Later settings can preserve the same mechanisms while changing the story:
+a research institute choosing costly experiments under conflicting public
+obligations; an expedition managing a shared life-support system; or an
+energy network with incompatible reliability, access, and land concerns.
+Cross-domain transfer tests whether the acquired relation survives a new
+surface story. Multiplayer bargaining is a later track because strategic
+communication adds another source of variance to the initial capability test.
+
+14. SIGNIFICANT INSIGHTS AND NEXT INVESTIGATION
+
+First, the cleanest failure may be trusting evidence made uninformative by
+one's own intervention. This joins causal reasoning and long-term context
+without depending on deception. It is implementable in a tiny exact game.
+
+Second, acquiring useful knowledge can change the moral problem. An audit
+may reveal who bears an invisible burden, altering what a published charter
+requires. Better reasoning need not always produce a more comfortable choice.
+
+Third, coherence can require institutional replacement. A concern can persist
+while its carrier changes. A policy that merely preserves the original
+organisation may fail the continuing mandate.
+
+Fourth, reversal does not erase history. Refilling a reservoir does not restore
+lost harvests or undo commitments. A correct state representation must retain
+the consequences that the headline indicator hides.
+
+Fifth, useful inquiry is conditional on future action. More measurements are
+not necessarily better, and temporary ignorance can be a rational consequence
+of scarcity. Costs, deadlines, and feasible responses give inquiry its value.
+
+Sixth, the ability to construct later options can be assessed without treating
+more options as an absolute good. Test whether the new operation can actually
+be used, by whom, at what cost, and under what mandate.
+
+Seventh, public notes can make accumulated understanding transferable. If
+another model benefits from a good dossier, some of the apparent continuity
+resides in an external representation. That is a finding about the mechanism
+of competent performance, not a reason to dismiss it.
+
+The first explanatory question should be:
+
+  As the interval grows between acquiring a causal distinction and needing
+  it again, which tested systems still use it correctly after their own
+  interventions have changed its evidence, obligations, and possible uses?
+
+Run that comparison with matched histories, explicit charters, and reported
+resource use. It directly tests the proposed sustained-reasoning capability.
+It is sharper than asking which model writes the most convincing account
+of a difficult moral situation.
+
+15. WHAT WAS IMPLEMENTED AND EXECUTED
+
+The accompanying Python kernel implements four seasons and eight submitted
+decisions. It contains a binary persistent hidden condition, a surface sensor
+whose likelihood depends on the previous operation, a paid upstream assay,
+five possible operations with prerequisites, an investment that enables reuse,
+and a public terminal liability. The exact reference enumerates future
+observations and actions under the public world family. It does not receive
+the actual hidden condition or seed.
+
+Fourteen semantic tests passed. They check action-conditioned updating,
+information-price changes, irrelevant inquiry, a hand-calculated one-season
+value, charter and horizon sensitivity, public/private separation, keyed
+randomness, budgets, construction, and faithful save/resume.
+
+The saved scripted demonstration covers 64 paired world seeds and four
+policies: 256 games in total. No LLM was evaluated. Mean results are:
+
+Policy                 Realised charter loss   Local excess loss   Brier
+Exact continuation      8.74609                 0.00000             0.05039
+Always assay           10.13672                 1.28260             0.03855
+Myopic                  9.64844                 1.17788             0.11919
+Ignore blending         8.74609                 0.00000             0.05039
+
+Lower is better in each column, under its own definition. These figures are
+descriptive, not model comparisons or confidence-qualified general claims.
+The always-assay policy obtains more accurate forecasts while paying for
+worse decisions under the declared charter. Forecasts and consequential
+judgment therefore need separate reporting.
+
+The default complete-run paths do not distinguish the exact policy from the
+policy that ignores blending. This limitation is recorded; matching scores
+cannot be interpreted as a successful test of that error.
+
+A separately supplied hypothetical checkpoint (three seasons remaining,
+four credits, hazard belief 0.4) verifies inquiry-price sensitivity. Expected
+remaining loss without an assay is 9.0; buying an assay yields 8.27262 when
+it costs one credit and 9.67210 when it costs two. Thus the exact choice
+changes with the real opportunity cost. This is an isolated diagnostic, not
+a checkpoint sampled from the default initial sensor history.
+
+A further reachable checkpoint was generated using legal choices none,
+blend, none in seed 29. It was selected by searching seeds 0-49 for the first
+action contrast and is explicitly illustrative. An initial unblended clear
+reading gives hazard belief 4/31. A later warning after blending leaves that
+belief unchanged, whereas ignoring blending raises it incorrectly to 32/59.
+The correct reference chooses pump; the mistaken interpretation chooses blend.
+The excess expected loss is small, about 0.08505 toy units. This demonstrates
+that misreading intervention-dependent evidence can produce excess precaution
+as well as false reassurance. It is not a held-out performance result.
+
+The kernel omits consent, negotiation, changing institutions, changing values,
+multiple hidden mechanisms, inquiry delays, and the long full campaign.
+Those are design specifications in this report, not implemented capabilities.
+The code, rules, tests, full traces, and checkpoint are in this repository.
+
+16. SOURCE AND EVIDENCE LEDGER
+
+[S1] Dwarkesh Patel, "The benchmark where AIs have to lie to win", 5 November
+2026. User-supplied text and public primary article consulted.
+https://www.dwarkesh.com/p/clocktower
+Used for the motivating game, conditional evidence, programmatic referee,
+and proposed accumulated-experience investigations. This report does not
+independently reproduce its model rankings or reuse them as a Pro result.
+
+[S2] Alexander Pan et al., "Do the Rewards Justify the Means? Measuring
+Trade-Offs Between Rewards and Ethical Behavior in the MACHIAVELLI Benchmark",
+ICML 2023, PMLR 202:26837-26867. Primary paper inspected, especially PDF pages
+1-3 on branching adventures, competing objectives, history, and scoring.
+https://proceedings.mlr.press/v202/pan23a.html
+https://proceedings.mlr.press/v202/pan23a/pan23a.pdf
+
+[S3] Andon Labs, Vending-Bench 2. Primary description consulted 6 November
+2026. Used for the long-duration operation and explicit financial objective
+baseline, not for an independently verified ranking.
+https://andonlabs.com/evals/vending-bench-2
+
+[S4] Privately supplied conceptual note on MAES ethics and coupled opposition,
+24 October 2026, v1. Used with the project creator's authorization as conceptual
+input. The private note is not included in this public repository. Its relevant
+principles are described in this design; no underlying OLSTA experiment was
+rerun for this task.
+
+[S5] OpenAI, Reasoning models documentation, sections "Reasoning mode" and
+"How reasoning works", consulted 6 November 2026. Used to distinguish mode,
+effort, cost, and reasoning-context configuration. The documentation does not
+establish that any chosen API setting reproduces a particular ChatGPT experience.
+https://developers.openai.com/api/docs/guides/reasoning
+
+Source scope: the literature check was targeted rather than comprehensive.
+The public benchmark papers and descriptions above were consulted directly.
+This public edition omits private catalogue details and source identifiers.
+
+All scenario mechanisms, experimental proposals, formulas for this proposed
+benchmark, and teaching-example calculations not attributed above are design
+work for this task. The pilot's validation report records only what
+was actually executed.
+
+END

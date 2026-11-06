@@ -1,0 +1,733 @@
+{
+  "episode": "B1",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "steps": [
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "inquiry",
+        "state": {
+          "completed_seasons": 0,
+          "credits": 6,
+          "reuse_works": false,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          }
+        ],
+        "available_choices": [
+          "none",
+          "assay"
+        ]
+      },
+      "response": {
+        "choice": "assay",
+        "forecast_hazardous": 0.1290322581,
+        "brief_reason": "The clear surface result lowers the hazard probability to 4/31. An assay can distinguish whether early pumping is worthwhile before extraction debt creates larger delayed and terminal liabilities. Its one-credit cost still leaves enough funding to build reuse works if the result supports that investment.",
+        "revision_trigger": "A positive assay would favour early protective investment; a negative assay would favour considering pumping while updating on subsequent observations."
+      },
+      "applied_choice": "assay",
+      "valid_choice": true,
+      "correct_public_posterior": 0.12903225806451613,
+      "reference_action": "assay",
+      "reference_values": {
+        "none": 8.53852064516129,
+        "assay": 7.93348825483871
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 45
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 0,
+          "credits": 5,
+          "reuse_works": false,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "blend",
+          "ration",
+          "build"
+        ]
+      },
+      "response": {
+        "choice": "build",
+        "forecast_hazardous": 0.5714285714,
+        "brief_reason": "The positive assay raises the hazard probability to 4/7. Building now costs 8.5 in charter loss and enables three subsequent reuse operations costing 0.75 each, for a remaining four-season total of 10.75 with zero extraction debt. This uses the longest available reuse horizon and avoids hazardous pumping liabilities.",
+        "revision_trigger": "Subsequent evidence will update the hazard forecast, but once works exist, reuse remains cheaper than every alternative under these charter weights."
+      },
+      "applied_choice": "build",
+      "valid_choice": true,
+      "correct_public_posterior": 0.5714285714285714,
+      "reference_action": "build",
+      "reference_values": {
+        "pump": 13.849896214285714,
+        "blend": 12.0,
+        "ration": 12.9497565,
+        "build": 10.75
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 48
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "inquiry",
+        "state": {
+          "completed_seasons": 1,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          }
+        ],
+        "available_choices": [
+          "none",
+          "assay"
+        ]
+      },
+      "response": {
+        "choice": "none",
+        "forecast_hazardous": 0.2285714286,
+        "brief_reason": "The new clear result lowers the hazard probability to 8/35. Reuse costs 0.75 in charter loss, incurs no health burden, and creates no debt. It dominates the available alternatives even if the source is benign, so an assay cannot improve the operation choice and would add expenditure.",
+        "revision_trigger": "Only a change to reuse availability, action effects, or charter weights could make further testing decision-relevant."
+      },
+      "applied_choice": "none",
+      "valid_choice": true,
+      "correct_public_posterior": 0.22857142857142856,
+      "reference_action": "none",
+      "reference_values": {
+        "none": 2.25,
+        "assay": 2.75
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 47
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 1,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "blend",
+          "ration",
+          "reuse"
+        ]
+      },
+      "response": {
+        "choice": "reuse",
+        "forecast_hazardous": 0.2285714286,
+        "brief_reason": "Reuse produces charter loss of 0.75, preserves zero debt, and incurs no health burden or expenditure. Pumping already costs at least 1 before health and terminal liabilities; blend costs 2 and ration costs 5. Reuse therefore minimises loss under either source condition.",
+        "revision_trigger": "A change in reuse availability or its specified burdens would require reconsideration; further surface evidence alone would not change this choice."
+      },
+      "applied_choice": "reuse",
+      "valid_choice": true,
+      "correct_public_posterior": 0.22857142857142856,
+      "reference_action": "reuse",
+      "reference_values": {
+        "pump": 4.328571428571428,
+        "blend": 3.5,
+        "ration": 6.5,
+        "reuse": 2.25
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 42
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "inquiry",
+        "state": {
+          "completed_seasons": 2,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 2,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 3,
+            "after_action": "reuse",
+            "result": "clear"
+          }
+        ],
+        "available_choices": [
+          "none",
+          "assay"
+        ]
+      },
+      "response": {
+        "choice": "none",
+        "forecast_hazardous": 0.0617760618,
+        "brief_reason": "The third clear surface result lowers the hazard probability to 16/259. Reuse remains the least costly operation under both hidden conditions and maintains zero debt. An assay would add 0.5 in charter loss without changing the optimal action.",
+        "revision_trigger": "Testing would become useful only if the available operations or charter changed so that the preferred action depended on the hidden condition."
+      },
+      "applied_choice": "none",
+      "valid_choice": true,
+      "correct_public_posterior": 0.06177606177606178,
+      "reference_action": "none",
+      "reference_values": {
+        "none": 1.5,
+        "assay": 2.0
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 38
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 2,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 2,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 3,
+            "after_action": "reuse",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 3,
+            "choice": "none",
+            "cost": 0
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "blend",
+          "ration",
+          "reuse"
+        ]
+      },
+      "response": {
+        "choice": "reuse",
+        "forecast_hazardous": 0.0617760618,
+        "brief_reason": "Reuse costs 0.75 in charter loss and keeps extraction debt at zero. It remains cheaper than pumping even under a benign source, while also avoiding all delayed health liabilities. Neither blend nor ration offers a compensating benefit.",
+        "revision_trigger": "An observed change to reuse availability or the declared action burdens would change the comparison; another surface result would only update the forecast."
+      },
+      "applied_choice": "reuse",
+      "valid_choice": true,
+      "correct_public_posterior": 0.06177606177606178,
+      "reference_action": "reuse",
+      "reference_values": {
+        "pump": 2.244208494208494,
+        "blend": 2.75,
+        "ration": 5.75,
+        "reuse": 1.5
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 37
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "inquiry",
+        "state": {
+          "completed_seasons": 3,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 2,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 3,
+            "after_action": "reuse",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 3,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 3,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 4,
+            "after_action": "reuse",
+            "result": "warning"
+          }
+        ],
+        "available_choices": [
+          "none",
+          "assay"
+        ]
+      },
+      "response": {
+        "choice": "none",
+        "forecast_hazardous": 0.3450134771,
+        "brief_reason": "The warning raises the hazard probability to 128/371. Reuse still minimises the final season's loss under either condition and leaves no terminal debt liability. An assay cannot improve this decision, so its expenditure is unwarranted.",
+        "revision_trigger": "Only an observed change in reuse availability or the specified losses would change the final operation; assay results would not."
+      },
+      "applied_choice": "none",
+      "valid_choice": true,
+      "correct_public_posterior": 0.3450134770889488,
+      "reference_action": "none",
+      "reference_values": {
+        "none": 0.75,
+        "assay": 1.25
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 35
+    },
+    {
+      "packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 3,
+          "credits": 2,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 1,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 1,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 2,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 3,
+            "after_action": "reuse",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 3,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 3,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 4,
+            "after_action": "reuse",
+            "result": "warning"
+          },
+          {
+            "event": "inquiry",
+            "season": 4,
+            "choice": "none",
+            "cost": 0
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "blend",
+          "ration",
+          "reuse"
+        ]
+      },
+      "response": {
+        "choice": "reuse",
+        "forecast_hazardous": 0.3450134771,
+        "brief_reason": "Reuse incurs 0.75 in final-season charter loss and leaves zero terminal liabilities. Pumping would create immediate habitat pressure plus terminal habitat and possible health burdens; blend costs 2 and ration costs 5. Reuse is optimal under both hidden conditions.",
+        "revision_trigger": "Only a change to the available operations or their stated consequences would alter this final choice."
+      },
+      "applied_choice": "reuse",
+      "valid_choice": true,
+      "correct_public_posterior": 0.3450134770889488,
+      "reference_action": "reuse",
+      "reference_values": {
+        "pump": 7.020215633423181,
+        "blend": 2.0,
+        "ration": 5.0,
+        "reuse": 0.75
+      },
+      "excess_expected_loss": 0.0,
+      "public_reason_words": 39
+    }
+  ],
+  "result": {
+    "hidden_condition_revealed_after_play": "hazardous",
+    "outcome_vector": {
+      "acute_service_shortfall": 1.0,
+      "delayed_health_burden": 0.0,
+      "farm_livelihood_disruption": 3.5,
+      "habitat_pressure": 1.75,
+      "public_expenditure": 4.0
+    },
+    "declared_charter_loss_lower_is_better": 11.25,
+    "forecast_brier_lower_is_better": 0.5938756706464274,
+    "forecast_count": 8,
+    "credits_remaining": 2,
+    "reuse_works_built": true,
+    "note": "Fictional burden units; this scalar is one declared charter, not universal moral worth."
+  },
+  "referee_seed_released_after_completion": 205063739499376765430301066256889156985,
+  "sum_local_excess_expected_loss": 0.0
+}

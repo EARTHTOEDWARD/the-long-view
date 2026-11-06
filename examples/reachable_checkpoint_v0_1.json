@@ -1,0 +1,79 @@
+{
+  "status": "REACHABLE SCRIPTED CHECKPOINT; NO LLM EVALUATED",
+  "selection": "First differing action found in a diagnostic search of seeds 0-49 after the fixed legal choices none, blend, none. Illustrative, not a randomly selected or held-out performance result.",
+  "referee_seed_not_for_contestant": 29,
+  "player_packet": {
+    "schema": "long-view-kernel-v1",
+    "phase": "action",
+    "state": {
+      "completed_seasons": 1,
+      "credits": 4,
+      "reuse_works": false,
+      "extraction_debt": 0
+    },
+    "total_seasons": 4,
+    "assay_cost": 1,
+    "declared_charter": {
+      "acute_service_shortfall": 4.0,
+      "delayed_health_burden": 4.0,
+      "farm_livelihood_disruption": 1.0,
+      "habitat_pressure": 1.0,
+      "public_expenditure": 0.5
+    },
+    "history": [
+      {
+        "event": "surface",
+        "season": 1,
+        "after_action": null,
+        "result": "clear"
+      },
+      {
+        "event": "inquiry",
+        "season": 1,
+        "choice": "none",
+        "cost": 0
+      },
+      {
+        "event": "action",
+        "season": 1,
+        "choice": "blend",
+        "observable_burdens": {
+          "acute_service_shortfall": 0.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 0.0,
+          "public_expenditure": 2.0
+        }
+      },
+      {
+        "event": "surface",
+        "season": 2,
+        "after_action": "blend",
+        "result": "warning"
+      },
+      {
+        "event": "inquiry",
+        "season": 2,
+        "choice": "none",
+        "cost": 0
+      }
+    ],
+    "available_choices": [
+      "pump",
+      "blend",
+      "ration",
+      "build"
+    ]
+  },
+  "correct_hazard_probability": 0.12903225806451613,
+  "mistaken_hazard_probability_if_blending_ignored": 0.5423728813559322,
+  "correct_action": "pump",
+  "mistaken_action": "blend",
+  "expected_remaining_losses_under_correct_belief": {
+    "pump": 7.021154838709677,
+    "blend": 7.106209677419354,
+    "ration": 8.795145161290323,
+    "build": 10.0
+  },
+  "excess_expected_loss_of_mistaken_action": 0.08505483870967723,
+  "meaning": "A warning after blending is uninformative just as a clear reading is. Ignoring the preceding intervention can create excess precaution as well as false reassurance."
+}

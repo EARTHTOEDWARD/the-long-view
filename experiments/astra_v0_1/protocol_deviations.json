@@ -1,0 +1,121 @@
+{
+  "status": "Retained deviations in the exploratory in-session pilot; no affected run was discarded or repeated.",
+  "delivery": "Human-readable collaboration calls manually transcribed public packets. Canonical engine packets in episode logs are not byte-exact attestations of all delivered inputs.",
+  "deviations": [
+    {
+      "id": "C1-punctuation",
+      "case_id": "C1",
+      "kind": "prompt transcription",
+      "template_text": "reuse costs0, only after build;",
+      "delivered_text": "reuse costs0; only after build;",
+      "handling": "Actual delivered prompt retained in checkpoints.json; numerical rules unchanged; no rerun."
+    },
+    {
+      "id": "B2-history-expenditure",
+      "episode": "B2",
+      "response_number": 6,
+      "phase": "season 3 action",
+      "kind": "one discrepant historic observation",
+      "canonical_record": "B2.json /steps/5/packet",
+      "json_pointer": "/history/5/observable_burdens/public_expenditure",
+      "canonical_value": 0.0,
+      "delivered_value": 0.25,
+      "actual_input_packet": {
+        "schema": "long-view-kernel-v1",
+        "phase": "action",
+        "state": {
+          "completed_seasons": 2,
+          "credits": 1,
+          "reuse_works": true,
+          "extraction_debt": 0
+        },
+        "total_seasons": 4,
+        "assay_cost": 2,
+        "declared_charter": {
+          "acute_service_shortfall": 4.0,
+          "delayed_health_burden": 4.0,
+          "farm_livelihood_disruption": 1.0,
+          "habitat_pressure": 1.0,
+          "public_expenditure": 0.5
+        },
+        "history": [
+          {
+            "event": "surface",
+            "season": 1,
+            "after_action": null,
+            "result": "clear"
+          },
+          {
+            "event": "assay",
+            "season": 1,
+            "cost": 2,
+            "result": "positive"
+          },
+          {
+            "event": "action",
+            "season": 1,
+            "choice": "build",
+            "observable_burdens": {
+              "acute_service_shortfall": 1.0,
+              "farm_livelihood_disruption": 2.0,
+              "habitat_pressure": 1.0,
+              "public_expenditure": 3.0
+            }
+          },
+          {
+            "event": "surface",
+            "season": 2,
+            "after_action": "build",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 2,
+            "choice": "none",
+            "cost": 0
+          },
+          {
+            "event": "action",
+            "season": 2,
+            "choice": "reuse",
+            "observable_burdens": {
+              "acute_service_shortfall": 0.0,
+              "farm_livelihood_disruption": 0.5,
+              "habitat_pressure": 0.25,
+              "public_expenditure": 0.25
+            }
+          },
+          {
+            "event": "surface",
+            "season": 3,
+            "after_action": "reuse",
+            "result": "clear"
+          },
+          {
+            "event": "inquiry",
+            "season": 3,
+            "choice": "none",
+            "cost": 0
+          }
+        ],
+        "available_choices": [
+          "pump",
+          "ration",
+          "reuse"
+        ]
+      },
+      "handling": "Response retained without coaching or rerun. The next packet used the correct complete history. No extra contestant response was commissioned.",
+      "impact_assessment": "The altered entry was a past expenditure, while stated reuse cost, current credits, legal choices, source evidence, and transition rules remained correct. It does not change the canonical optimal continuation or reference posterior. The submitted response explicitly used the stated action rules and selected reuse. This remains an uncontrolled input discrepancy, so B2 is not a clean protocol replication."
+    }
+  ],
+  "secondary_diagnostics": "Posterior reconstruction error and mechanism-exposure counts were added following the independent review and are post-hoc diagnostics, not separately preregistered primary endpoints.",
+  "unavailable_telemetry": [
+    "inference dollars",
+    "reasoning tokens",
+    "API response model identifier",
+    "per-decision elapsed inference time",
+    "independent reasoning-mode attestation",
+    "hardened contestant isolation"
+  ],
+  "no_repair_or_extra_run": true
+}

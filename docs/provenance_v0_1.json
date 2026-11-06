@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "frozen_kernel_schema": "long-view-kernel-v1",
+  "upstream_artifact": "The Long View starter kit, version 1, 6 November 2026",
+  "upstream_files": [
+    {
+      "original_filename": "engine.py",
+      "sha256": "0ef3cad335ac26777f744021174dd0ba2eed5326ce700164e2f3c8a815106a06"
+    },
+    {
+      "original_filename": "test_engine.py",
+      "sha256": "59eea7b038f96e7cf290915fa35e9fa2c3bbb8b1ce7dc64c8f96bb2f8d9d2999"
+    },
+    {
+      "original_filename": "PLAYER_BRIEF.txt",
+      "sha256": "f04452868bdb5905056823a16167bc585ad44451285e3ea1624dd5b13032c474"
+    },
+    {
+      "original_filename": "ENGINE_README.txt",
+      "sha256": "467e9a0d4e19ae63093a7738d77a25447406f306723eba03463b41f29f220e0f"
+    },
+    {
+      "original_filename": "The_Long_View_Game_and_Evaluation_Design_2026-11-06_v1.txt",
+      "sha256": "e2f5280b95bf72ed259089867bec09adfc0741d2e02c070e4d5789bd62c3a136"
+    },
+    {
+      "original_filename": "demo_scripted_results.json",
+      "sha256": "e2e0bb6de96614b18ae7d421c896eba27d4abd28db777ac20eb5300952294aad"
+    },
+    {
+      "original_filename": "reachable_checkpoint.json",
+      "sha256": "f2b3127845f788bcec87be5402e9d3f1b67d2290a8fd0c6db5b0e5ff90d81a1f"
+    },
+    {
+      "original_filename": "validation_report.json",
+      "sha256": "a71e9a3572a86734868a7526cda36ae6bd7c26f19a369c163bed9277ac3a7b56"
+    }
+  ],
+  "packaging_changes": [
+    "engine.py is byte-for-byte unchanged at src/the_long_view/engine.py.",
+    "Tests import the packaged module; their assertions are unchanged.",
+    "Public player rules are unchanged.",
+    "Design is a public edition with private references removed; the longer game is still proposed.",
+    "The command wrapper and package entry points do not change game mechanics.",
+    "Scripted demonstration and reachable-checkpoint JSON are unchanged public fixtures."
+  ],
+  "historical_status": "The upstream examples contained scripted controls only. Later reviews and actual model experiments must have their own provenance and protocols."
+}
